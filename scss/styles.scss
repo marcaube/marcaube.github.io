@@ -1,0 +1,98 @@
+// General
+// ---------------------------------------------------------------------------------------------------------------------
+@import "h5bp/normalize";
+@import "h5bp/main";
+
+html {
+    font-size: 100%;
+    overflow-y:scroll;
+    min-height:100%;
+}
+
+
+// Typography
+// ---------------------------------------------------------------------------------------------------------------------
+body {
+    color: #5a5a5a;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+}
+
+::selection {
+    background: #b3d4fc;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.25em;
+    font-weight: normal;
+}
+
+a {
+    color: darkorange;
+}
+
+
+// Layout
+// ---------------------------------------------------------------------------------------------------------------------
+.container {
+    max-width: 45em;
+    margin: 0 auto;
+    padding: 1.618em;
+}
+
+// Menu
+header {
+    text-align: center;
+}
+
+ul.menu {
+    margin: 1.618em auto 0;
+    padding-left: 0;
+    list-style-type: none;
+
+    a {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.2em;
+        color: #999;
+        text-decoration: none;
+    }
+}
+
+// Post list
+ul.posts {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.post-time {
+    font-size: 0.8em;
+    color: #aaa;
+}
+
+.post-title {
+    margin: 0 0 0.2em;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.post-meta {
+    margin-top: 0;
+}
+
+
+// Responsive stuff
+// ---------------------------------------------------------------------------------------------------------------------
+@media only screen and (min-width: 40em) { // ~640px
+    body { font-size: 105%; }
+}
+@media only screen and (min-width: 62.5em) { // ~1000px
+    body { font-size: 112.5%; }
+}
+@media only screen and (min-width: 75em) { // ~1200px
+    body { font-size: 125%; }
+}

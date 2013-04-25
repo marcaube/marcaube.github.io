@@ -1,0 +1,20 @@
+---
+layout: default
+title: marcaube.ca ~ web dev, rants and random stuff ~ développement web et billets divers
+---
+
+<h1>marcaube.ca</h1>
+
+<hr />
+
+<ul class="posts">
+    {% for post in site.posts %}
+        <li>
+            <span class="post-time">{{ post.date | date: "%d %B, %Y" }}</span>
+            <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+            {% if post.meta %}
+                <p class="post-meta">{{ post.meta }}</p>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
