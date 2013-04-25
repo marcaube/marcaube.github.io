@@ -2,6 +2,7 @@
 // ---------------------------------------------------------------------------------------------------------------------
 @import "h5bp/normalize";
 @import "h5bp/main";
+@import "font";
 
 html {
     font-size: 100%;
@@ -48,16 +49,41 @@ header {
     text-align: center;
 }
 
-ul.menu {
-    margin: 1.618em auto 0;
+.list-unstyled {
     padding-left: 0;
     list-style-type: none;
+}
+
+.list-inline {
+    li {
+        display: inline;
+    }
+}
+
+.header-links {
+    margin: 1.618em auto 0;
 
     a {
         font-family: Georgia, "Times New Roman", serif;
         font-size: 1.2em;
         color: #999;
         text-decoration: none;
+    }
+}
+
+footer {
+    text-align: center;
+}
+
+.footer-links {
+    font-size: 1.618em;
+
+    a {
+        color: #aaa;
+
+        &:hover {
+            color: #777;
+        }
     }
 }
 
