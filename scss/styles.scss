@@ -6,7 +6,6 @@
 
 html {
     min-height:100%;
-    font-size: 100%;
     overflow-y:scroll;
 }
 
@@ -42,6 +41,7 @@ a {
 .big { font-size: 1.25em; }
 .bigger { font-size: 1.5em; }
 .biggest { font-size: 1.875em; }
+
 
 // Layout
 // ---------------------------------------------------------------------------------------------------------------------
@@ -97,6 +97,16 @@ footer {
 .posts {
     padding-left: 0;
     list-style-type: none;
+
+    li {
+        margin-bottom: 1em;
+        padding-bottom: 1em;
+        border-bottom: 1px solid #eee;
+
+        &:last-of-type {
+            border: 0;
+        }
+    }
 }
 
 .post-time{
