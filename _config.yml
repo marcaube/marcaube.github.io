@@ -3,6 +3,7 @@ safe: true
 #destination: <the build dir>
 lsi: false
 pygments: true
+permalink: /:categories/:year/:month/:title
 
 exclude: scss, build.sh, README.md
 include: css
