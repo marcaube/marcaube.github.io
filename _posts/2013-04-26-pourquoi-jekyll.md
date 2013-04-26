@@ -31,7 +31,7 @@ Jekyll est un programme écrit en Ruby. Il utilise un langage de  template nomm�
 
 Le contenu peut être écrit avec Markdown ou Textile, et Jekyll offre plusieurs options pour un site de type blog comme les tags, les catégories et la pagination.
 
-Il y a aussi [une tonne de *plugins*](https://github.com/mojombo/jekyll/wiki/Plugins) au cas où les fonctionnalités de base ne soit pas suffisantes. Il est bon de noter par contre que Github ne supporte pas les *plugins* pour des raisons de sécurité, alors il faut générer les pages localement avant de les pousser sur Github.
+Il y a aussi [une tonne de *plugins*](https://github.com/mojombo/jekyll/wiki/Plugins) au cas où les fonctionnalités de base ne soient pas suffisantes. Il est bon de noter par contre que Github ne supporte pas les *plugins* pour des raisons de sécurité, alors il faut générer les pages localement avant de les pousser sur Github.
 
 ## Donc pourquoi avoir utilisé Jekyll?
 - Pour apprendre à l'utiliser, ce qui peut être très utile sur Github
