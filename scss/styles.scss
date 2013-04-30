@@ -147,10 +147,41 @@ article .post-comments {
 // ---------------------------------------------------------------------------------------------------------------------
 @media only screen and (min-width: 40em) { // ~640px
     body { font-size: 105%; }
+
+    .header-links {
+        -webkit-animation: slideDown .5s ease-in-out
+    }
 }
+
 @media only screen and (min-width: 62.5em) { // ~1000px
     body { font-size: 112.5%; }
 }
+
 @media only screen and (min-width: 75em) { // ~1200px
     body { font-size: 125%; }
+}
+
+
+// Animations
+// ---------------------------------------------------------------------------------------------------------------------
+@-webkit-keyframes slideDown {
+    0% {
+        -webkit-transform: translateY(-20px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes slideUp {
+    0% {
+        -webkit-transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateY(0px);
+        opacity: 1;
+    }
 }
