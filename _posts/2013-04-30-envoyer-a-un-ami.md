@@ -2,6 +2,7 @@
 layout: post
 title: Envoyer à un ami
 meta: Comment ajouter l'option de partager une info-lettre à un ami
+published: false
 ---
 
 ## Le problème
