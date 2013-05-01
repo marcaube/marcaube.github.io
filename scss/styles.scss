@@ -49,6 +49,13 @@ a {
 .bigger { font-size: 1.5em; }
 .biggest { font-size: 1.875em; }
 
+.highlight pre, code {
+    font-size: 0.875em;
+    line-height: 1em;
+    white-space: pre;
+    word-wrap: normal;
+}
+
 
 // Layout
 // ---------------------------------------------------------------------------------------------------------------------

@@ -2,7 +2,6 @@
 layout: post
 title: Envoyer à un ami
 meta: Comment ajouter l'option de partager une info-lettre à un ami
-published: false
 ---
 
 ## Le problème
@@ -25,6 +24,7 @@ En y pensant rapidement on va avoir besoin des éléments suivants pour dévelop
 Dans le bundle où se fait l'envoi de l'info-lettre, on crée au besoin un dossier `Service/` où on va placer nos 2 nouveaux services.
 
 On crée ensuite notre premier service `SendToFriendService.php`. Ce service va utiliser SwiftMailer, qu'on va injecter dans le constructeur.
+
 ``` php
 <?php
 
@@ -63,6 +63,7 @@ class SendToFriendMailer
 ```
 
 Maintenant on doit enregistrer notre service dans le ficher `services.yml` de notre bundle et injecter swiftmailer.
+
 ``` yaml
 parameters:
     acme.sendtofriend.mailer.class: Acme\NewsletterBundle\Service\SendToFriendMailer
@@ -103,6 +104,7 @@ class SendToFriendRenderer
 Le service ne fait pas grand chose mais ce serait l'endroit pour ajouter une mécanique plus complexe. On pourrait par exemple placer une bannière d'auto-promotion pour inciter l'ami à s'abonner à notre infolettre.
 
 On peut maintenant l'enregistrer à son tour.
+
 ``` yaml
 parameters:
     acme.sendtofriend.mailer.class: Acme\NewsletterBundle\Service\SendToFriendMailer
@@ -120,6 +122,7 @@ services:
 
 ### Le formulaire
 Dans un controlleur, on va créer une nouvelle action permettant de faire suivre le courriel à un ami.
+
 ``` php
 <?php
 
@@ -133,6 +136,9 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class NewsletterController extends Controller
 {
+    /*
+     * @Template
+     */
     public function forwardAction(Request $request)
     {
         $form = $this->createFormBuilder()
@@ -169,6 +175,7 @@ Pour l'instant, on n'a aucune mesure de sécurité et il manque probablement un 
 
 ### Routes et templates
 On va avoir 2 routes à créer: celle vers le formulaire, et celle pour la page *succès*. Pour la 2e, on va utiliser le `FrameworkBundle` pour ne pas avoir à ajouter une autre action dans le controlleur.
+
 ``` yaml
 # Acme/NewsletterBundle/Resources/config/routing.yml
 acme_sendtofriend_success:
