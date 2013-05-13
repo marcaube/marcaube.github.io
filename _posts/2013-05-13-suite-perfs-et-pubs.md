@@ -30,7 +30,7 @@ Comme le div n'a pas de contenu au chargement de la page, sa hauteur est zéro. 
 Finalement, comme une zone pub apparait sur plusieurs pages, et qu'on peut spécifier une pub différente selon la page, on doit pouvoir spécifier la page en cours. On peut soit récupérer l'URL de la page en JS ou passer un autre *data-attribute* qu'on remplis dans notre template :
 
 ``` html
-<div class="pub" data-format="leaderboard" data-page="{{ page }}" style="height:90px"></div>
+<div class="pub" data-format="leaderboard" data-page="index" style="height:90px"></div>
 ```
 
 ## Le javascript
