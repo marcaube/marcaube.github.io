@@ -59,7 +59,7 @@ Cette requête retourne du code HTML contenant soit une image avec un lien, soit
 
 Si on n'a pas déjà jQuery dans la page, on peut facilement sauver 30kb en écrivant le code en *JS vanille* ou en utilisant une librairie plus légère (<10k) comme [Zepto](http://zeptojs.com).
 
-Voici ce que ça donnerait en *JS vanille* (<1kb). Je ne suis pas programmeur JS alors le code suivant peut surement être amélioré ! Je l'ai testé dans IE 6-7-8 et il foncitonne bien.
+Voici ce que ça donnerait en *JS vanille* (<1kb). Je ne suis pas programmeur JS alors le code suivant peut surement être amélioré ! Je l'ai testé dans IE 6-7-8 et il fonctionne bien.
 
 ``` js
 <script defer type="text/javascript">
