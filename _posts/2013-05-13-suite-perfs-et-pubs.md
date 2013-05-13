@@ -36,7 +36,7 @@ Finalement, comme une zone pub apparait sur plusieurs pages, et qu'on peut spéc
 ## Le javascript
 Avant la balise fermante du `body`, on peut ajouter le code jQuery suivant :
 
-```
+``` js
 <script defer type="text/javascript">
     $(function(){
         $('.pub').each(function(){
@@ -62,7 +62,7 @@ Si on n'a pas déjà jQuery dans la page, on peut facilement sauver 30kb en écr
 Voici ce que ça donnerait en *JS vanille* (<1kb). Je ne suis pas programmeur JS alors le code suivant peut surement être amélioré ! Je l'ai testé dans IE 6-7-8 et il foncitonne bien.
 
 ``` js
-<script type="text/javascript">
+<script defer type="text/javascript">
     // $.get()
     xhrGet = function(url, callback) {
         var xhr;
