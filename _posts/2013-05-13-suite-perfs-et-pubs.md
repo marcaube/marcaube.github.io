@@ -3,6 +3,7 @@ layout: post
 title: Suite: Performance web et publicités
 meta: Solution javascript à mon problème de perfs
 ---
+
 Suite à [mon billet](/2013/04/performances-et-pubs/) sur un problème de *perf* relié à l'affichage de publicités, j'ai beaucoup cogité et j'ai fini par écrire une solution en JS.
 
 ## Définir une zone
