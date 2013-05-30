@@ -86,7 +86,7 @@ namespace Acme\NewsletterBundle\Service;
 
 class SendToFriendRenderer
 {
-    /*
+    /**
      * @param string $html    The newsletter html
      * @param string $message The personalized message to prepend
      */
@@ -137,7 +137,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class NewsletterController extends Controller
 {
-    /*
+    /**
      * @Template
      */
     public function forwardAction(Request $request)
