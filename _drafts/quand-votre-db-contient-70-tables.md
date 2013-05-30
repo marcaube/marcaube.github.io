@@ -18,7 +18,7 @@ Si ont doit absolument garder ce contenu dans la BD, ces tables pourraient être
 Avec ce changement, on doit encore *hardcoder* la référence vers le bloc de texte (`SELECT * FROM textes_statiques WHERE id = 1`), ce qui n'est pas optimal, mais au moins on a nettoyé la liste des tables et enlevé de la redondance.
 
 ## Les tables avec < 10 lignes
-D'autres tables sont là pour [normaliser la base de données](http://fr.wikipedia.org/wiki/Forme_normale_(bases_de_donn%C3%A9es_relationnelles)), des tables comme `usager_statut` ou `usager_type`. Ce que ces tables engendrent quand on fait nos requêtes? Des requêtes complexes, des jointures inutiles et un *hit* sur les performances.
+D'autres tables sont là pour [normaliser la base de données](http://fr.wikipedia.org/wiki/Forme_normale_%28bases_de_donn%C3%A9es_relationnelles%29), des tables comme `usager_statut` ou `usager_type`. Ce que ces tables engendrent quand on fait nos requêtes? Des requêtes complexes, des jointures inutiles et un *hit* sur les performances.
 
 Plusieurs de ces tables pourraient être une constante de classe, stocké dans un champ INT dans la table `usager`. Pour éviter de briser le code en place, on peut utiliser le # d'id comme valeur de constante.
 
