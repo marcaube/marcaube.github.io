@@ -27,9 +27,10 @@ Les intégrateurs travaillaient probablement avec des téléviseurs de 40 pouces
 Sachant ça, il semble abusif d'avoir des images de si grande taille qui, ironiquement, portent le suffixe *_optimised*. Optimisée pour quoi? Dépasser ma limite de bande passante? Si la majeure partie des visiteurs ont une résolution inférieure à 1920x1080, pourquoi avoir des images 30% plus grandes?
 
 J'ai testé différents scénarios pour optimiser l'utilisation de la bande passante:
-* J'ai réduit la qualité d'image de façon agressive (30%) sans changer la taille. Comme l'image est affichée plus petite, les artefacts ne sont pas aussi apparents, c'est une technique qui est est parfois utilisée pour fournir des images claires aux appareils HDPI. J'ai ensuite passé l'image dans [ImageOptim](http://imageoptim.com/) pour un résultat final de 492kb, une réduction de 51% par rapport à l'originale.
-* J'ai réduit la taille de l'image à ma taille d'affichage (1905px) et j'ai réduit la qualité comme on le fait généralement en exportant pour le web (60%). J'ai ensuite optimisé l'image pour un résultat de 382kb, une réduction de 62%.
-* J'ai réduit la taille à 1905px et réduit la qualité de façon un peu plus agressive (40%). Un fois optimisée, j'obtient une image de 292kb, pour 71% d'amélioration. Des artefacts un peu plus apparent commencent à apparaitre dans les couleurs à plat comme le ciel, qui est heureusement caché par le menu.
+
+- J'ai réduit la qualité d'image de façon agressive (30%) sans changer la taille. Comme l'image est affichée plus petite, les artefacts ne sont pas aussi apparents, c'est une technique qui est est parfois utilisée pour fournir des images claires aux appareils HDPI. J'ai ensuite passé l'image dans [ImageOptim](http://imageoptim.com/) pour un résultat final de 492kb, une réduction de 51% par rapport à l'originale.
+- J'ai réduit la taille de l'image à ma taille d'affichage (1905px) et j'ai réduit la qualité comme on le fait généralement en exportant pour le web (60%). J'ai ensuite optimisé l'image pour un résultat de 382kb, une réduction de 62%.
+- J'ai réduit la taille à 1905px et réduit la qualité de façon un peu plus agressive (40%). Un fois optimisée, j'obtient une image de 292kb, pour 71% d'amélioration. Des artefacts un peu plus apparent commencent à apparaitre dans les couleurs à plat comme le ciel, qui est heureusement caché par le menu.
 
 Juste en optimisant les images du carrousel et les images de fond de façon intelligente, on peut sauver tout près de 6Mb, en l'espace de seulement 5-10 minutes, sans toucher à une ligne de code.
 
@@ -80,11 +81,13 @@ J'aime bien l'idée d'avoir un [budget performance](http://timkadlec.com/2013/01
 Avoir des contraintes nous pousse à faire des choix sensés et à décider de ce qui est vraiment important dans une page web. Avoir des limites nous force à être créatifs dans nos solutions: est-ce qu'on a vraiment besoin de jQuery (90kb) pour faire bouger 2-3 trucs dans la page ou bien on peut le faire en JS vanille, ou même avec CSS?
 
 Voici en lien quelques lectures pour pousser l'exercice encore plus loin:
+
 - ["Front-end performance" par Harry Roberts](http://csswizardry.com/2013/01/front-end-performance-for-web-designers-and-front-end-developers/)
 - ["Performance as Design" par Brad Frost](http://bradfrostweb.com/blog/post/performance-as-design/)
 - ["Browser diet" - 25 étapes pour améliorer la performance d'un site](http://browserdiet.com/)
 
 Voici quelques outils pour évaluer la performance d'un site web:
+
 - ["Page speed insights" par Google](https://developers.google.com/speed/pagespeed/insights)
 - ["YSlow" par Yahoo!](http://developer.yahoo.com/yslow/)
 - [L'onglet audit dans Chrome](http://www.html5rocks.com/en/tutorials/developertools/auditpanel/)
