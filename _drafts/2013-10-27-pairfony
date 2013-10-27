@@ -1,0 +1,36 @@
+---
+layout: post
+title: The pairfony project
+meta: Creating a place where passionate PHP devs can learn from each others.
+---
+
+I've been reading and re-reading several books in the last couple of weeks and there are a lot of things I realize I want to master. While my code quality has improved heaps in the last years, there's still so much I want to learn and apply. 
+
+While reading my small mountain of books, I stumbled upon the [Software Crafstmanship manifesto](http://manifesto.softwarecraftsmanship.org). Those familiar with the [Agile manifesto](http://agilemanifesto.org) will recognize the items on the left and will appreviate the items on the right.
+
+The idea is that being a good developer is so much more then just writing code that compiles. This is the bare minumum to be called a programmer. As a professionnal developper, you should have a special attention to details and aspire to technical excellence. You should also take pride in creating well-crafted solutions. You are ... a software craftsman.
+
+Becoming a craftsman is a long journey, perhaps a life-long journey and mentoring is a big part of that learning process. If you want to learn TDD, you should work with someone proficient at TDD. If you want to learn a new language/technique/paradigm, you should pair with someone that's good at it. As a rule of thumb, you should surround yourself with people better than you.
+
+
+## So what?
+
+All of this stuck in my mind for a while. I am a lone wolf at work and live in the countryside where there are not much potential mentors, so I decided to look if there were some meet-ups around my area. Nope. I looked online if there were some websites where I could get in touch with potential mentors. Yes and no. 
+
+I found [http://rubypair.com](), where ruby devs can get together to pair-program. I found [http://www.pairprogramwith.me]() where you can generate a badge for you website saying "Pair with me". I also found [http://pair-with-me.herokuapp.com/](), an aggregator of tweets with the #pairwithme hashtag.
+
+None of those site do quite what I want, so I decided to scratch my own itch and create the website I'm looking for.
+
+
+## How I see pairfony
+
+I want a website where you can put yourself out there, and say what you want to learn or teach. Developpers of all levels should be able to get in touch and arrange pair-programming or mentoring sessions. In essence, you create a profile, search for people with similar interests and get together.
+
+There are some good tools available for remote pair-programming and code reviews. I discovered [ScreenHero](http://screenhero.com) a couple of months ago via [a tweet](https://twitter.com/everzet/status/336841914911453184) by [@everzet](https://twitter.com/everzet) and you can also remote program with [ssh, tmux and vim](http://blog.stevenhaddox.com/2012/04/11/remote-pairing-with-ssh-tmux-vim/), if that's your thing.
+
+The only missing link for an aspiring PHP craftsman is a way to get in touch with a mentor. That's what I want to provide.
+
+
+## So what now?
+
+I created a [repo for the project on github](https://github.com/marcaube/Pairfony) and started to work on it a bit. That'll be my pet-project for the foreseeable future.
