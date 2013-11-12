@@ -1,12 +1,10 @@
 safe: true
-#source: <your pages repo>
-#destination: <the build dir>
 lsi: false
 pygments: true
 permalink: /:categories/:year/:month/:title
 markdown: redcarpet
 
-exclude: scss, build.sh, README.md
-include: css
+exclude: [scss, build.sh, README.md]
+include: [css]
 
 root: http://marcaube.ca/
