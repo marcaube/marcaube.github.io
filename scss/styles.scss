@@ -38,7 +38,7 @@ blockquote {
 }
 
 a {
-    color: darkorange;
+    color: darken(darkorange, 5%);
 
     &:hover {
         color: darken(darkorange, 10%);
@@ -66,8 +66,30 @@ a {
 }
 
 // Menu
-header {
+.page-header,
+.post-header {
+    background: darkorange url('../img/header-leaves-mini.jpg') center top no-repeat;
+    color: #fff;
     text-align: center;
+}
+
+.page-header a {
+    color: #fff;
+    font-weight: bold;
+}
+
+header .container:before,
+header .container:after {
+    content: " ";
+    display: table;
+}
+
+header .container:after {
+    clear: both;
+}
+
+header .container {
+    *zoom: 1;
 }
 
 .list-unstyled {
@@ -82,12 +104,12 @@ header {
 }
 
 .header-links {
-    margin: 1.618em auto 0;
+    margin: 0 auto;
 
     a {
         font-family: Georgia, "Times New Roman", serif;
         font-size: 1.2em;
-        color: #999;
+        color: #fff;
         text-decoration: none;
     }
 }
@@ -159,14 +181,22 @@ article .post-comments {
 // ---------------------------------------------------------------------------------------------------------------------
 @media only screen and (min-width: 40em) { // ~640px
     body { font-size: 105%; }
+    .page-header,
+    .post-header {
+        background-image: url('../img/header-leaves-small.jpg');
+    }   
 
-    .header-links {
+    .post-header .container {
         -webkit-animation: slideDown .5s ease-in-out
     }
 }
 
 @media only screen and (min-width: 62.5em) { // ~1000px
     body { font-size: 112.5%; }
+    .page-header,
+    .post-header {
+        background-image: url('../img/header-leaves.jpg');
+    }   
 }
 
 @media only screen and (min-width: 75em) { // ~1200px

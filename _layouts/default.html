@@ -13,11 +13,23 @@
     <body>
 
         {% if page.url != '/index.html' %}
-        <header>
-            <ul class="header-links list-unstyled">
-                <li><a href="/">Accueil</a></li>
-            </ul>
-        </header>
+            <header class="post-header">
+                <div class="container">
+                    <h1>{{ page.title }}</h1>
+                    {% if page.meta %}
+                        <p class="post-meta">{{ page.meta }}</p>
+                    {% endif %}
+                </div>
+            </header>
+        {% else %}
+            <header class="page-header">
+                <div class="container">
+                    <h1>Hi, I'm Marc Aube</h1>
+                    <p>
+                        I'm a developper from Quebec, Canada. I try to <a href="http://github.com/marcaube">build</a>, learn and pass on.
+                    </p>
+                </div>
+            </header>
         {% endif %}
 
         <div class="container">

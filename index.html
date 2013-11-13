@@ -3,10 +3,6 @@ layout: default
 title: marcaube.ca ~ web dev, rants and random stuff ~ développement web et billets divers
 ---
 
-<h1>marcaube.ca</h1>
-
-<hr />
-
 <ul class="posts">
     {% for post in paginator.posts %}
         <li>
@@ -23,27 +19,27 @@ title: marcaube.ca ~ web dev, rants and random stuff ~ développement web et bil
 <!-- Pagination links -->
 {% if paginator.total_pages > 1 %}
     <div class="pagination">
-	{% if paginator.previous_page %}
-	    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
-	{% else %}
-	    <span>&laquo; Prev</span>
-	{% endif %}
+        {% if paginator.previous_page %}
+            <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+        {% else %}
+            <span>&laquo; Prev</span>
+        {% endif %}
 
-	{% for page in (1..paginator.total_pages) %}
-	    {% if page == paginator.page %}
-		{{ page }}
-	    {% elsif page == 1 %}
-		<a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
-	    {% else %}
-		<a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
-	    {% endif %}
-	{% endfor %}
+        {% for page in (1..paginator.total_pages) %}
+            {% if page == paginator.page %}
+                {{ page }}
+            {% elsif page == 1 %}
+                <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+            {% else %}
+                <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+            {% endif %}
+        {% endfor %}
 
-	{% if paginator.next_page %}
-	    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
-	{% else %}
-	    <span>Next &raquo;</span>
-	{% endif %}
+        {% if paginator.next_page %}
+            <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+        {% else %}
+            <span>Next &raquo;</span>
+        {% endif %}
     </div>
 {% endif %}
 
