@@ -1,3 +1,9 @@
+---
+layout: post
+title: Domain objects and code organization
+meta: More elaborate answer on code and bundles arrangement
+---
+
 *5 minutes read*
 
 A few days – or was it weeks – ago, I answered hastily to [a question](https://groups.google.com/forum/#!topic/symfony2/tPjJ6UF_oZk) on the Symfony2 Google Group. The question is simple but the answer is not : How do your organise your code in a Symfony project?
