@@ -28,7 +28,7 @@ If you were to move those entities outside of your Symfony project, let's say yo
 
 My answer to that, and that might change again in the future, is to write your business logic in a library. Define your models there and then in your bundles you define entities that extend those base models.
 
-Let's write a bit of code to illustrate that ...
+Let's write a bit of code to illustrate that. First the model :
 
 ```php
 namespace Acme\DomainLib\Model;
@@ -45,6 +45,8 @@ class Customer
     }
 }
 ```
+
+And then the entity :
 
 ```php
 namespace Acme\AppBundle\Entity;
