@@ -1,11 +1,30 @@
-safe: true
-lsi: false
-pygments: true
+title: Marc Aube
+description: Software crafstmanship, rants and randomness
+
+exclude: [README.md]
+
+url: http://marcaube.ca
+baseurl: ""
+paginate_path: "/page/page:num/"
 permalink: /:categories/:year/:month/:title
-paginate: 5
+
 markdown: redcarpet
+highlighter: pygments
+paginate: 5
 
-exclude: [scss, build.sh, README.md]
-include: [css]
+navigation:
+    - title: Home
+      url: /index.html
+    - title: Articles
+      url: /articles.html
+# - title: About
+#   url: /about
+# - title: Contact
+#   url: /contact
 
-root: http://marcaube.ca/
+social:
+   github: marcaube
+   twitter: maaube
+   disqus: marcaube
+
+google_analytics: "UA-24040542-3"
