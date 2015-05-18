@@ -4,8 +4,6 @@ title: Domain objects and code organization
 meta: More elaborate answer on code and bundles arrangement
 ---
 
-*5 minutes read*
-
 A few days – or was it weeks – ago, I answered hastily to [a question](https://groups.google.com/forum/#!topic/symfony2/tPjJ6UF_oZk) on the Symfony2 Google Group. The question is simple but the answer is not : How do your organise your code in a Symfony project?
 
 I've had some time to think about it and wanted to elaborate on the subject. Writing makes me think, and thinking is good.
@@ -31,6 +29,8 @@ My answer to that, and that might change again in the future, is to write your b
 Let's write a bit of code to illustrate that. First the model :
 
 ```php
+<?php
+
 namespace Acme\DomainLib\Model;
 
 class Customer
@@ -49,6 +49,8 @@ class Customer
 And then the entity :
 
 ```php
+<?php
+
 namespace Acme\AppBundle\Entity;
 
 use Acme\DomainLib\Model\Customer as BaseCustomer;
@@ -65,7 +67,7 @@ class Customer extends BaseCustomer
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-		private $id;
+     private $id;
 
     /**
      * @ORM\Column(type="string")
