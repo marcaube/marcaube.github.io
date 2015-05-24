@@ -1,0 +1,229 @@
+// Syntax Highlighting (Monokai)
+// =====================================================================================================================
+
+// Components colors
+$highlight:             #C1C2C3;;
+$highlight-bg:          #343642;
+$highlight-hll:         #49483e;
+$highlight-comment:     #75715e;
+$highlight-error:       #960050;
+$highlight-error-bg:    #1e0010;
+$highlight-keyword:     #66d9ef;
+$highlight-literal:     #ae81ff;
+$highlight-name:        #f8f8f2;
+$highlight-operator:    #f92672;
+$highlight-primitive:   #e6db74;
+$highlight-class:       #a6e22e;
+
+.highlight {
+    padding: 1em;
+    font-size: .7777em;
+    line-height: 1.5em;
+    color: $highlight;
+    background-color: $highlight-bg;
+    overflow: auto;
+    white-space: pre;
+    word-wrap: normal; /* horizontal scrolling */
+
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
+
+    pre {
+        margin: 0;
+        padding: 1em;
+    }
+
+}
+
+.highlight::-webkit-scrollbar {
+    height: 10px;
+}
+
+.highlight::-webkit-scrollbar-track:enabled {
+    background-color: transparent;
+    -webkit-border-radius: 5px;
+}
+
+.highlight::-webkit-scrollbar-thumb:horizontal {
+    background-color: $highlight-bg;
+    -webkit-border-radius: 5px;
+}
+
+.highlight {
+    .hll { background-color: $highlight-hll }
+
+    /* Comment */
+    .c { color: $highlight-comment }
+
+    /* Error */
+    .err { color: $highlight-error; background-color: $highlight-error-bg }
+
+    /* Keyword */
+    .k { color: $highlight-keyword }
+
+    /* Literal */
+    .l { color: $highlight-literal }
+
+    /* Name */
+    .n, .l-Scalar-Plain { color: $highlight-name }
+
+    /* Operator */
+    .o { color: $highlight-operator }
+
+    /* Punctuation */
+    .p { color: $highlight-name }
+
+    /* Comment.Multiline */
+    .cm { color: $highlight-comment }
+
+    /* Comment.Preproc */
+    .cp { color: $highlight-comment }
+
+    /* Comment.Single */
+    .c1 { color: $highlight-comment }
+
+    /* Comment.Special */
+    .cs { color: $highlight-comment }
+
+    /* Generic.Emph */
+    .ge { font-style: italic }
+
+    /* Generic.Strong */
+    .gs { font-weight: bold }
+
+    /* Keyword.Constant */
+    .kc { color: $highlight-keyword }
+
+    /* Keyword.Declaration */
+    .kd { color: $highlight-keyword }
+
+    /* Keyword.Namespace */
+    .kn { color: $highlight-operator }
+
+    /* Keyword.Pseudo */
+    .kp { color: $highlight-keyword }
+
+    /* Keyword.Reserved */
+    .kr { color: $highlight-keyword }
+
+    /* Keyword.Type */
+    .kt { color: $highlight-keyword }
+
+    /* Literal.Date */
+    .ld { color: $highlight-primitive }
+
+    /* Literal.Number */
+    .m { color: $highlight-literal }
+
+    /* Literal.String */
+    .s { color: $highlight-primitive }
+
+    /* Name.Attribute */
+    .na { color: $highlight-class }
+
+    /* Name.Builtin */
+    .nb { color: $highlight-name }
+
+    /* Name.Class */
+    .nc { color: $highlight-class }
+
+    /* Name.Constant */
+    .no { color: $highlight-keyword }
+
+    /* Name.Decorator */
+    .nd { color: $highlight-class }
+
+    /* Name.Entity */
+    .ni { color: $highlight-name }
+
+    /* Name.Exception */
+    .ne { color: $highlight-class }
+
+    /* Name.Function */
+    .nf { color: $highlight-class }
+
+    /* Name.Label */
+    .nl { color: $highlight-name }
+
+    /* Name.Namespace */
+    .nn { color: $highlight-name }
+
+    /* Name.Other */
+    .nx { color: $highlight-class }
+
+    /* Name.Property */
+    .py { color: $highlight-name }
+
+    /* Name.Tag */
+    .nt { color: $highlight-operator }
+
+    /* Name.Variable */
+    .nv { color: $highlight-name }
+
+    /* Operator.Word */
+    .ow { color: $highlight-operator }
+
+    /* Text.Whitespace */
+    .w { color: $highlight-name }
+
+    /* Literal.Number.Float */
+    .mf { color: $highlight-literal }
+
+    /* Literal.Number.Hex */
+    .mh { color: $highlight-literal }
+
+    /* Literal.Number.Integer */
+    .mi { color: $highlight-literal }
+
+    /* Literal.Number.Oct */
+    .mo { color: $highlight-literal }
+
+    /* Literal.String.Backtick */
+    .sb { color: $highlight-primitive }
+
+    /* Literal.String.Char */
+    .sc { color: $highlight-primitive }
+
+    /* Literal.String.Doc */
+    .sd { color: $highlight-primitive }
+
+    /* Literal.String.Double */
+    .s2 { color: $highlight-primitive }
+
+    /* Literal.String.Escape */
+    .se { color: $highlight-literal }
+
+    /* Literal.String.Heredoc */
+    .sh { color: $highlight-primitive }
+
+    /* Literal.String.Interpol */
+    .si { color: $highlight-primitive }
+
+    /* Literal.String.Other */
+    .sx { color: $highlight-primitive }
+
+    /* Literal.String.Regex */
+    .sr { color: $highlight-primitive }
+
+    /* Literal.String.Single */
+    .s1 { color: $highlight-primitive }
+
+    /* Literal.String.Symbol */
+    .ss { color: $highlight-primitive }
+
+    /* Name.Builtin.Pseudo */
+    .bp { color: $highlight-name }
+
+    /* Name.Variable.Class */
+    .vc { color: $highlight-name }
+
+    /* Name.Variable.Global */
+    .vg { color: $highlight-name }
+
+    /* Name.Variable.Instance */
+    .vi { color: $highlight-name }
+
+    /* Literal.Number.Integer.Long */
+    .il { color: $highlight-literal }
+}
