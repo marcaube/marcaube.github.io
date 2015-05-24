@@ -4,6 +4,14 @@
 <script src="{{ '/assets/js/dropcap.min.js' | prepend: site.baseurl }}"></script>
 <script src="{{ '/assets/js/responsive-nav.min.js' | prepend: site.baseurl }}"></script>
 <script src="{{ '/assets/js/scripts.js' | prepend: site.baseurl }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/1.0.1/anchor.min.js"></script>
+<script>
+    anchors.options = {
+        placement: 'left',
+        visible: 'hover'
+    };
+    anchors.add('.post h2, .post h3');
+</script>
 
 {% if site.google_analytics %}
     {% include google_analytics.html %}

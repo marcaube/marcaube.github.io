@@ -11,6 +11,22 @@
     <link rel="stylesheet" href="{{ "/assets/css/style.css" | prepend: site.baseurl }}">
     <!--[if IE 8]><link rel="stylesheet" href="{{ "/assets/css/ie.css" | prepend: site.baseurl }}"><![endif]-->
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/1.0.1/anchor.min.css">
+    <style>
+        .anchorjs-link {
+            transition: all .25s linear;
+        }
+        .anchorjs-link:link, .anchorjs-link:visited {
+            color: #2E8B57;
+        }
+        .anchorjs-link:hover {
+            color: #1B5233;
+        }
+        *:hover > .anchorjs-link {
+            margin-left: -1.125em !important;
+        }
+    </style>
+
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
     <link rel="author" href="humans.txt">
 
