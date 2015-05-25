@@ -206,7 +206,7 @@ It depends on your project, your team and it's up to you to decide where you dra
 
 The third use case for specifications is building objects to specification. You can use them to tell a factory how to create an object satisfiying certain criteria. 
 
-The code gets a bit more complicated and won't be discussed here. There's a whole chapter dedicated to specifications in Eric Evans' book, so you can read chapter nine if you're intersted in learning more.
+The code gets a bit more complicated and won't be discussed here. There's a whole chapter dedicated to specifications in Eric Evans' book, so you can read chapter nine if you're interested in learning more.
 
 
 ## References
