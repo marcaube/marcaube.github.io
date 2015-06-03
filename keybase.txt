@@ -1,0 +1,81 @@
+==================================================================
+https://keybase.io/marcaube
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://marcaube.ca
+  * I am marcaube (https://keybase.io/marcaube) on keybase.
+  * I have a public key with fingerprint A323 88CD 3850 262E 1EA3  CC00 0A1A 7489 29EB 0696
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "client": {
+            "name": "keybase.io node.js client",
+            "version": "0.7.9"
+        },
+        "key": {
+            "fingerprint": "a32388cd3850262e1ea3cc000a1a748929eb0696",
+            "host": "keybase.io",
+            "key_id": "0A1A748929EB0696",
+            "uid": "364a0ec8fb98097d90ef8679459ea719",
+            "username": "marcaube"
+        },
+        "merkle_root": {
+            "ctime": 1433363890,
+            "hash": "7edf6f2ac44ca875cf3a32dda37978e8fa15a0691097b73edeb1401deae37f0b9768c44fe513aa9143d74ef4b5017b9d0ce17f9688b4a6a92e30e78f13fb016a",
+            "seqno": 239257
+        },
+        "service": {
+            "hostname": "marcaube.ca",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1433363987,
+    "expire_in": 157680000,
+    "prev": "6249d116753228a15a25639e96c6571c4726e78efbbb17ee06d945f06f42d3a4",
+    "seqno": 3,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1
+
+owFdUn1QVFUcXRZhBEXJUKBAYYmMWpj3/bEjTEDIkA5DIAoxtN333n3LA3Yf7C4L
+i8DAYI1EYDIlzjQ5ZTYMCdIfRBMBDilNYDCKE9SKTJsUCGoQY4AZ9B7SlP1379xz
+zu+c37nv+HlqtB6+T9nroua8T3lcuc1pMmXxyaM6ThacOsNRHV8oQYtdPVmAGeoM
+ugLo5IANxkhymEUWYEy+LWwDo9c5oNUmyRYFhcTQMayuUq/CVbIoWUzQWmSVVC0d
+wDGcYXgBZ0gEozCIQoDzPIIgAAU0wbAYCzmEYilFMk+22R+bqlvXNEqCOiUejX+E
+T0rYwJesP+AUARDIMyLHMghLCywCRYaiWYJkIaBRVgXaoHUjkhlYeVDCQdWvGVoL
+CqHRKsvroXm7pEJQAsdxCmdYRHEEbHkKiYaCSIkY4AmCBwxN8iKuxBIEgNMszUBG
+BCgJFFOoMp+jcShADiUQVIAA4rSIcCxNMQpXhCSKA8AqEwSagCLBkQhKc6yA8BCl
+RZZiGI4AFGAxiCOQZkQUFzkEpYASwQaLLbLOgOEsRtKV6t3qkHio+lbX9r90MbzK
+KbLKdpmXC5WHPLu9yKBmtjuLVGAp5Iy2tkcaRk6yCEpn/y0VVaCP74NlaL0OlhVJ
+VmiUVASphFJqRNQ50KFoUhjBCihK0SSOYYy6EoxUeJCleIqkUZ6gMUpJBUWO41Aa
+QoQSlJJEhBIJTMAB8W9KXPEJTIqkTTJZgL3EqtRVpw3ZpPHQary9tOqv1fj6+P/z
+lWv7tq/uM20JaH/o9r/QMnT+cOSfyMzSysxSVYS3n/PS4VZsOLrFh6sIoA98nJi4
+7AKn3e0FjU80PONoo640Irk76onnYvO1b9pmp7U/tvzgPzeRkzgWu9x8puXt1QRf
+cu/isbS+b3d4RpgNi9+cKL90c/oT2HR8fPeJaqcxf2w59HJQ59R7ZWSqpjz3+xS6
+rBgLyPT8IH0qn5jW590YvbYW7LMta/TurerI+eyanzz2iM/6jbw/tdWwqr9YeJBp
+1ZgvD1ak3++eLnSuRp99JXfC89cjd73mAzc7Dt0vnTWWXmz3Cg5L6/c5xUw577FX
+LdNzvyy8kaNfWKrsyV5bOtjQHLdzMfoI0RtX/vrX2+JDIxb2yam72tHdK5OdQ1er
+uj6lvryZtxb2LnH9fP7ZL/pr/6r/7VbPWtyZzZtqjG0JWwL/GInAxsZDBj6P6dJG
+7BnaX5tUjHa1XavuHTCEA1OB/nTG7LmOF092ueZ6es2HXh48MJrEXvAzzGpPxse6
+zbuCZu6RTVEzmTVNdcnNC+nJHa0w5XZwFDU6nuEuTpmcMLna/D7r6E7J2F7q3ZF8
+3ZV1/KOGbLx8raHO5f6uvX4iXfd8eGqT+7WvfEydT3cFZt7JGoChfcHulcY7Fb8P
+3iCwBy+9EBL+1kjjzqq0hw9y0qnh4T5xf/exgSDBdW7y1Z/nHf3Dez+M3Rr5Nw==
+=prRG
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/marcaube
+
+==================================================================
