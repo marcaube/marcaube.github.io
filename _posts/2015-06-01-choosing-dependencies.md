@@ -110,6 +110,12 @@ Another thing I like to check is if other large or popular projects depend on it
 
 Second, you can search for the package on [VersionEye](https://www.versioneye.com/search?q=symfony%2Fyaml) and look at the number of references. You can click on that number and look for familiar names in the references, for instance: laravel, symfony, drupal, behat, doctrine, phpunit, phpspec, aws, thephpleague, etc. Chances are, if popular projects depend on it, it's not going away anytime soon.
 
+**Update June 13, 2015:** I couldn't find the link at the time of writing, but a great tool to visualize the afferent dependencies of a library is [The Packagist Graph](http://packagist.graphstory.com/). It is much faster than looking at a paginated list on VersionEye.
+
+[![symfony/yaml afferent dependencies](/assets/posts/2015-06-01-choosing-dependencies/afferent-dependency-graph.png)](http://packagist.graphstory.com/requires-package?required-package=symfony%2Fyaml&required-type=REQUIRES)
+
+*As you can see `symfony/yaml` is not going anywhere.*
+
 
 ## It has a solid test suite
 
