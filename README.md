@@ -1,3 +1,18 @@
-marcaube.github.io
-==================
-This is the codebase of my [personal website](http://marcaube.ca) built on [Jekyll](http://jekyllrb.com/) and hosted on [Github Pages](http://pages.github.com/). The posts are in french but the code is all in english.
+# marcaube.ca
+
+Source code of my [website](http://marcaube.ca) using [Jekyll](https://github.com/jekyll/jekyll).
+
+
+## Usage
+
+```bash
+gem install github-pages
+```
+
+```bash
+jekyll serve
+```
+
+Then go to [http://localhost:4000](http://localhost:4000)
+
+
