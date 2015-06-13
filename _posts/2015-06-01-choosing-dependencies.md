@@ -102,9 +102,9 @@ Things to look for:
 
 On github, you can look at the different graphs to get a bird's eye view of the activity of a project.
 
-![Symfony's commit graph](/assets/img/choosing-dependencies/commit-graph.png)
+![Symfony's commit graph](/assets/posts/2015-06-01-choosing-dependencies/commit-graph.png)
 
-![Symfony's contribution graph](/assets/img/choosing-dependencies/contribution-graph.png)
+![Symfony's contribution graph](/assets/posts/2015-06-01-choosing-dependencies/contribution-graph.png)
 
 Another thing I like to check is if other large or popular projects depend on it. There are two quick ways to do it that I know of. First, look at the number of downloads on Packagist. Most of them should be discarded if they don't have at least a couple thousand downloads.
 
@@ -117,7 +117,7 @@ A solid test suite is a must, because you want a package that can prove it does 
 
 For code coverage, I wouldn't touch anything under 75% code coverage. When you think about it for a minute, it probably means that they didn't write tests for the 25% of code that was really complicated and made testing difficult. That's the part I would want covered in the first place, it's a *bug-hive*. Also, open the `phpunit.xml.dist` file to see if anything was excluded from the coverage report, it's possible to play with numbers. You may also want to search the codebase for `@codeCoverageIgnore`.
 
-![Flysystem's badges](/assets/img/choosing-dependencies/badges.png)
+![Flysystem's badges](/assets/posts/2015-06-01-choosing-dependencies/badges.png)
 
 Two other interesting badges are the code quality badge from [Scrutinizer](https://scrutinizer-ci.com) and [SensioLabsInsight](https://insight.sensiolabs.com). These tools can tell you how a library looks under the hook: the architecture, the patterns, the potential bugs, the security issues, etc. You can click on the badges to have more informations and make your decision. If you want to appreciate juste how hard it is to get a 10/10 on Scrutinizer or a platinum medal on SensioLabsInsight, try them on one of your small projects and watch as they tear it apart. Humbling experience.
 
