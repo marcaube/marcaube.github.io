@@ -211,8 +211,8 @@ The code gets a bit more complicated and won't be discussed here. There's a whol
 
 ## References
 
-- Evans, Eric (2004). [Domain Driven Design](http://www.amazon.ca/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215/). Addison-Wesley.
-- Carlos Buenosvinos, Christian Soronellas and Keyvan Akbary. (2015). [Domain-Driven Design in PHP](https://leanpub.com/ddd-in-php). Leanpub.
+- Evans, Eric (2004). [Domain Driven Design](http://www.amazon.com/gp/product/B00794TAUG/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00794TAUG&linkCode=as2&tag=marcaube-20&linkId=CH3BZ3D5JG6K4RZ3). Addison-Wesley.
+- Carlos Buenosvinos, Christian Soronellas and Keyvan Akbary. (2015). [Domain-Driven Design in PHP](https://leanpub.com/ddd-in-php?a=Ug88MJbcykCAu8AEAWNjDA). Leanpub.
 
 ## Links
 
