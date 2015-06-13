@@ -17,6 +17,8 @@ navigation:
       url: /index.html
     - title: Articles
       url: /articles.html
+    - title: My bookshelf
+      url: /books.html
 # - title: About
 #   url: /about
 # - title: Contact
