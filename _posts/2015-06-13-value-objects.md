@@ -8,9 +8,9 @@ Value objects are an important building block of domain-driven design. They are 
 > A small simple object, like money or a date range, whose equality isn't based on identity.
 > – Martin Fowler
 
-Value objects equality is not based on identity. Two `PhoneNumber` objets are equal if they represent the same phone number, even if they are not the same object reference. An often used example is comparing bank notes: a 5$ bill is the same as another 5$ bill. You don't care which one you get, you're only interested in its value.
+Value objects equality is not based on identity. Two `PhoneNumber` objects are equal if they represent the same phone number, even if they are not the same object reference. An often used example is comparing bank notes: a 5$ bill is the same as another 5$ bill. You don't care which one you get, you're only interested in its value.
 
-Most importantly, value objects should be immutable, which mean they **shoudn't** have any mutators (*setters*). If you want to change it, simply replace the whole object with a new one. This will prevent a lot of nasty side-effects.
+Most importantly, value objects should be immutable, which mean they **shouldn't** have any mutators (*setters*). If you want to change it, simply replace the whole object with a new one. This will prevent a lot of nasty side-effects.
 
 
 ## Examples of value objects
@@ -79,7 +79,7 @@ final class Email
 
 ### Group related values
 
-While modelling your business problem, you often come accross values that only make sense together:
+While modelling your business problem, you often come across values that only make sense together:
 
 - Amount and currency (Money)
 - Latitude and longitude (Geo coordinate)
@@ -99,7 +99,7 @@ Look in your domain and you'll find multiple values that tend to stick together 
 
 Take a `PhoneNumber`, there are use cases where you'd want to retrieve the country code, or the regional code. The object could expose methods to get those values.
 
-Behaviour can also be more elaborate than simple accessors. A `Distance` object could expose methods to express its value in miles or kilometers. A `DateTimeInterval` could provide methods to express the interval in days, weeks or months. I'm sure you get the idea.
+Behaviour can also be more elaborate than simple accessors. A `Distance` object could expose methods to express its value in miles or kilometres. A `DateTimeInterval` could provide methods to express the interval in days, weeks or months. I'm sure you get the idea.
 
 Look in your code for services and utility classes that you use to manipulate data. If that data is an important concept in your domain, it may be an opportunity for a value object. Make the concept explicit and encapsulate the behaviour within intention revealing methods.
 
@@ -111,7 +111,7 @@ Look in your code for services and utility classes that you use to manipulate da
 
 [Primitive Obsession](http://c2.com/cgi/wiki?PrimitiveObsession) is an anti-pattern where primitive types (`int`, `string`, `array`) are used to represent domain concepts. For example, using a `string` to represent an email address, using a `int` or `float` to represent an amount of money, using an `array` to represent a collection of data.
 
-When these primitive types are passed around in your code, they carry no intrinsic meaning, you don't know what they represent appart from what the variable/parameter name tells you. It's up to the developer to figure it out.
+When these primitive types are passed around in your code, they carry no intrinsic meaning, you don't know what they represent apart from what the variable/parameter name tells you. It's up to the developer to figure it out.
 
 You also have to make sure that these values are valid. If an email is passed around as a string, you'll need email validations all over the place. That wouldn't be DRY.
 
