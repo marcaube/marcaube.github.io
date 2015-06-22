@@ -116,6 +116,7 @@ Second, you can search for the package on [VersionEye](https://www.versioneye.co
 
 *As you can see `symfony/yaml` is not going anywhere.*
 
+**Update June 22, 2015:** What you had to do on VersionEye, you can now do directly on [Packagist](https://packagist.org/packages/symfony/yaml/dependents)!
 
 ## It has a solid test suite
 
