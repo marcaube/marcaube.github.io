@@ -195,7 +195,7 @@ final class CustomerIsPremium implements CustomerSpecification, SqlSpecification
 }
 ```
 
-This can become problematic really fast, because database structure has leaked into the domain. Any change to the database will have to be reflected in a bunch of specifications and as you know, a class should [have only one reason to change](http://williamdurand.fr/2013/07/30/from-stupid-to-solid-code/#single-responsibility-principle).
+This can become problematic really fast, because database structure has leaked into the domain. Any change to the database will have to be reflected in a bunch of specifications and as you know, a class should [have only one reason to change](http://williamdurand.fr/2013/07/30/from-stupid-to-solid-code/#single-responsibility-principle) ([cache](/cache/40ef40dfc6d4aa01688cd6919ea37561.html#single-responsibility-principle)).
 
 You could use inversion of control to, at least, keep all that SQL inside the repository, which wouldn't be half as bad. You could also use an ORM, like [Doctrine](http://www.doctrine-project.org/), and use its mapping layer to decouple your code from the infrastructure layer.
 
@@ -217,4 +217,4 @@ The code gets a bit more complicated and won't be discussed here. There's a whol
 ## Links
 
 - [Specifications (pdf)](http://www.martinfowler.com/apsupp/spec.pdf) by Eric Evans and Martin Fowler
-- [The Specification Pattern: A Primer](https://matt.berther.io/2005/03/25/the-specification-pattern-a-primer/) by Matt Berther
+- [The Specification Pattern: A Primer](https://matt.berther.io/2005/03/25/the-specification-pattern-a-primer/) ([cache](/cache/4127ccf797b3efe7cecdb83d9168a3fe.html)) by Matt Berther
