@@ -16,7 +16,7 @@ I take for granted that your software will go in production, that's how it will 
 
 You should hold external code to the same quality standard. That is, your project should only depend on *stable* libraries. By default, composer's `minimum-stability` is `stable`, which is great, but it doesn't mean you can't mess up. 
 
-If you add a dependency with a `"dev-master"` or `"0.3.*"` version, you just pulled an unstable package. The maintainer(s) can change the API how they see fit since it's implied by the version that it's not production ready. There is no guarantee of backward compatibility between versions. Rafael Dohms has [a nice article](http://blog.doh.ms/2014/10/13/installing-composer-packages/) on his blog that explains how to select the version of a library.
+If you add a dependency with a `"dev-master"` or `"0.3.*"` version, you just pulled an unstable package. The maintainer(s) can change the API how they see fit since it's implied by the version that it's not production ready. There is no guarantee of backward compatibility between versions. Rafael Dohms has [a nice article](http://blog.doh.ms/2014/10/13/installing-composer-packages/) ([cache](/cache/79804a4d549d5e8c023f41e0b58d3b53.html)) on his blog that explains how to select the version of a library.
 
 Generally speaking, a package is considered stable if it has a version number that is at least `1.0.0`. This version number brings us to my next point ...
 
