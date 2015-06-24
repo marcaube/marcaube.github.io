@@ -34,7 +34,7 @@ J'ai testé différents scénarios pour optimiser l'utilisation de la bande pass
 
 Juste en optimisant les images du carrousel et les images de fond de façon intelligente, on peut sauver tout près de 6Mb, en l'espace de seulement 5-10 minutes, sans toucher à une ligne de code.
 
-Ensuite, comme Brad Frost [en a déjà parlé](http://bradfrostweb.com/blog/post/carousels/) à de nombreuses reprises, les carrousels sont rarement un bon choix: Pourquoi faire charger 4 gigantesques images à des internautes qui ne verront probablement que la première? En chargeant les images des autres saisons au clic plutôt qu'au chargement de la page, on réduit de 75% la bande passante utilisée par le *slider*.
+Ensuite, comme Brad Frost [en a déjà parlé](http://bradfrostweb.com/blog/post/carousels/) ([cache](/cache/2b55f9e39331e2b3152ef196cb1e65c0.html)) à de nombreuses reprises, les carrousels sont rarement un bon choix: Pourquoi faire charger 4 gigantesques images à des internautes qui ne verront probablement que la première? En chargeant les images des autres saisons au clic plutôt qu'au chargement de la page, on réduit de 75% la bande passante utilisée par le *slider*.
 
 Avec les images que j'ai optimisées, on sauve près de 900kb supplémentaires en ne pré-chargeant pas les images 2 à 4 du carrousel. La page est passée de 8.4Mb au départ à 1.6Mb en ne touchant qu'aux images, et en réduisant un peu les requêtes HTTP au passage.
 
@@ -76,14 +76,14 @@ Ces changements ont amélioré les performances du site, ce qui réduit le taux 
 
 Idéalement, c'est le genre de considération qu'on doit avoir avant même d'avoir écrit une ligne de code, on doit avoir cette discussion avant même l'étape du design.
 
-J'aime bien l'idée d'avoir un [budget performance](http://timkadlec.com/2013/01/setting-a-performance-budget/), où on se donne des limites, comme 75 requêtes HTTP, 800kb de tranfert au total, ou un temps de chargement inférieur à 2 secondes.
+J'aime bien l'idée d'avoir un [budget performance](http://timkadlec.com/2013/01/setting-a-performance-budget/) ([cache](/cache/0302bd347be73fb14d98ac952bb040ba.html)), où on se donne des limites, comme 75 requêtes HTTP, 800kb de tranfert au total, ou un temps de chargement inférieur à 2 secondes.
 
 Avoir des contraintes nous pousse à faire des choix sensés et à décider de ce qui est vraiment important dans une page web. Avoir des limites nous force à être créatifs dans nos solutions: est-ce qu'on a vraiment besoin de jQuery (90kb) pour faire bouger 2-3 trucs dans la page ou bien on peut le faire en JS vanille, ou même avec CSS?
 
 Voici en lien quelques lectures pour pousser l'exercice encore plus loin:
 
-- ["Front-end performance" par Harry Roberts](http://csswizardry.com/2013/01/front-end-performance-for-web-designers-and-front-end-developers/)
-- ["Performance as Design" par Brad Frost](http://bradfrostweb.com/blog/post/performance-as-design/)
+- ["Front-end performance" par Harry Roberts](http://csswizardry.com/2013/01/front-end-performance-for-web-designers-and-front-end-developers/) ([cache](/cache/cfa892ecd6899f1649c8568539eaa2e5.html))
+- ["Performance as Design" par Brad Frost](http://bradfrostweb.com/blog/post/performance-as-design/) ([cache](/cache/910850e598afefd4b015eddb0bd2c8c6.html))
 - ["Browser diet" - 25 étapes pour améliorer la performance d'un site](http://browserdiet.com/)
 
 Voici quelques outils pour évaluer la performance d'un site web:
