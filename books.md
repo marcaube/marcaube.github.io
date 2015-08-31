@@ -9,11 +9,11 @@ Here's a list of books I've read that had an influence on how I work and how I r
 
 - [Implementing Domain-Driven Design](http://www.amazon.com/gp/product/0321834577/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0321834577&linkCode=as2&tag=marcaube-20&linkId=MPKTTHW5Q4KNGDSJ) by Vaughn Vernon
 - [The Mythical Man-Month: Essays on Software Engineering](http://www.amazon.com/gp/product/0201835959/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0201835959&linkCode=as2&tag=marcaube-20&linkId=63QUKOCV5YPSMILW) by Frederick P. Brooks Jr.
-- [Modernizing Legacy Applications In PHP](https://leanpub.com/mlaphp) by Paul M. Jones
 
 
 ## 2015
 
+- [Modernizing Legacy Applications In PHP](https://leanpub.com/mlaphp) by Paul M. Jones
 - [Domain-Driven Design: Tackling Complexity in the Heart of Software](http://www.amazon.com/gp/product/B00794TAUG/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00794TAUG&linkCode=as2&tag=marcaube-20&linkId=CH3BZ3D5JG6K4RZ3) by Eric Evans
 
 
