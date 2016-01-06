@@ -153,7 +153,7 @@ Also, **you must...**
 
 ## It has quality documentation
 
-I cannot state too strongly how important it is to have a thorough documentation at your disposal when using a generic library. It should explain in details how to use the it, both with words and code examples. It should explain the steps required to install and bootstrap the package. Look at the docs, make sure your intended use is documented. Check if the extension points are documented, should you want to extend the functionalities.
+I cannot state too strongly how important it is to have a thorough documentation at your disposal when using a generic library. It should explain in details how to use it, both with words and code examples. It should explain the steps required to install and bootstrap the package. Look at the docs, make sure your intended use is documented. Check if the extension points are documented, should you want to extend the functionalities.
 
 There's nothing more frustrating than having to figure out how to use a package by reading its source code because the maintainer couldn't bother to write a minimum of documentation.
 
