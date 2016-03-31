@@ -149,9 +149,10 @@ And if we run that one we get...
 
 ## 4. What now?
 
-It works, but there another solution in there if you look closely. We can now get rid of the recursion alogether using a simple *while* loop. You basically want to reproduce what you had in the table:
+It works, but there's another solution in there if you look closely. We can now get rid of the recursion alogether using a simple *while* loop. You basically want to reproduce what you had in the table:
 
 While *n* is bigger than 0...
+
 - store the value of the accumulator in `prev`
 - increment the accumulator with `prev`
 - decrement n
