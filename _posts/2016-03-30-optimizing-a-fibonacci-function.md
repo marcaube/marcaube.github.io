@@ -1,4 +1,7 @@
-# Optimizing a fibonacci function
+---
+layout: post
+title: Optimizing a fibonacci function
+---
 
 A couple of days ago, one of my colleague was talking about a time when he was interviewed, and had to solve a bunch of programming puzzles. I like to solve puzzles, even if I don't think that [they're good interview questions](https://zachholman.com/posts/startup-interviewing-is-fucked/).
 
