@@ -133,7 +133,7 @@ The role of this accumulator is to accumulate (orly?) the result of the fibonacc
 
 If you trace the execution of `fibonacci_acc` for *n* = 5, this is what the values of each parameters look like:
 
-| n | prev1 | prev2 |
+| n | prev | acc |
 |:---:|:---:|:---:|
 | 5 | 1 | 0 |
 | 4 | 0 | 1 |
