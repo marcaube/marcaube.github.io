@@ -103,7 +103,7 @@ return 5
 
 In many languages, the sum operations are deferred until the interpreter reaches the end of the call stack. This means that all the numbers are kept memory until a final value can be returned.
 
-You could illustrate the computational complexity of this function using the [Big O notation](https://en.wikipedia.org/wiki/Big_O_notation), and you'd get something like **O(2<sup>n</sup>)**. This is bad, *really* bad... but we can improve on that!
+You could illustrate the computational complexity of this function using the [Big O notation](https://rob-bell.net/2009/06/a-beginners-guide-to-big-o-notation/), and you'd get something like **O(2<sup>n</sup>)**. This is bad, *really* bad... but we can improve on that!
 
 What if you could make only one recursive call for each *n*? That would be awesome, because that would get us down to **O(n)**. To manage that, we'll need to use an accumulator.
 
