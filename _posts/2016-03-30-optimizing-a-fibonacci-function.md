@@ -3,7 +3,7 @@ layout: post
 title: Optimizing a fibonacci function
 ---
 
-A couple of days ago, one of my colleague was talking about a time when he was interviewed, and had to solve a bunch of programming puzzles. I like to solve puzzles, even if I don't think that [they're good interview questions](https://zachholman.com/posts/startup-interviewing-is-fucked/).
+A couple of days ago, one of my colleague was talking about a time when he was interviewed, and had to solve a bunch of programming puzzles. I like to solve puzzles, even if I don't think that [they're good interview questions](https://zachholman.com/posts/startup-interviewing-is-fucked/) ([cache](/cache/fbac56b711bcf388ec43bfb29b934e29.html)).
 
 These kind of code challenge tend to favour people with a CS background, and most of the time have nothing to do with the job the company is interviewing for.
 
@@ -103,7 +103,7 @@ return 5
 
 In many languages, the sum operations are deferred until the interpreter reaches the end of the call stack. This means that all the numbers are kept memory until a final value can be returned.
 
-You could illustrate the computational complexity of this function using the [Big O notation](https://rob-bell.net/2009/06/a-beginners-guide-to-big-o-notation/), and you'd get something like **O(2<sup>n</sup>)**. This is bad, *really* bad... but we can improve on that!
+You could illustrate the computational complexity of this function using the [Big O notation](https://rob-bell.net/2009/06/a-beginners-guide-to-big-o-notation/) ([cache](/cache/11cba2cc5d0e7aa956eb5f7d346c859a.html)), and you'd get something like **O(2<sup>n</sup>)**. This is bad, *really* bad... but we can improve on that!
 
 What if you could make only one recursive call for each *n*? That would be awesome, because that would get us down to **O(n)**. To manage that, we'll need to use an accumulator.
 
