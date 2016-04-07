@@ -126,7 +126,7 @@ For code coverage, I wouldn't touch anything under 75% code coverage. When you t
 
 ![Flysystem's badges](/assets/posts/2015-06-01-choosing-dependencies/badges.png)
 
-Two other interesting badges are the code quality badge from [Scrutinizer](https://scrutinizer-ci.com) and [SensioLabsInsight](https://insight.sensiolabs.com). These tools can tell you how a library looks under the hook: the architecture, the patterns, the potential bugs, the security issues, etc. You can click on the badges to have more informations and make your decision. If you want to appreciate juste how hard it is to get a 10/10 on Scrutinizer or a platinum medal on SensioLabsInsight, try them on one of your small projects and watch as they tear it apart. Humbling experience.
+Two other interesting badges are the code quality badge from [Scrutinizer](https://scrutinizer-ci.com) and [SensioLabsInsight](https://insight.sensiolabs.com). These tools can tell you how a library looks under the hood: the architecture, the patterns, the potential bugs, the security issues, etc. You can click on the badges to have more informations and make your decision. If you want to appreciate juste how hard it is to get a 10/10 on Scrutinizer or a platinum medal on SensioLabsInsight, try them on one of your small projects and watch as they tear it apart. Humbling experience.
 
 
 ## The license permits the intended use
