@@ -14,7 +14,7 @@ paginate: 5
 
 navigation:
     - title: Home
-      url: /index
+      url: /
     - title: Articles
       url: /articles
     - title: My bookshelf
