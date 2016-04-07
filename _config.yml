@@ -14,11 +14,11 @@ paginate: 5
 
 navigation:
     - title: Home
-      url: /index.html
+      url: /index
     - title: Articles
-      url: /articles.html
+      url: /articles
     - title: My bookshelf
-      url: /books.html
+      url: /books
 # - title: About
 #   url: /about
 # - title: Contact
