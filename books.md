@@ -9,7 +9,7 @@ Here's a list of books I've read that had an influence on how I work and how I r
 
 - [Implementing Domain-Driven Design](http://www.amazon.com/gp/product/0321834577/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0321834577&linkCode=as2&tag=marcaube-20&linkId=MPKTTHW5Q4KNGDSJ) by Vaughn Vernon
 - [The Mythical Man-Month: Essays on Software Engineering](http://www.amazon.com/gp/product/0201835959/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0201835959&linkCode=as2&tag=marcaube-20&linkId=63QUKOCV5YPSMILW) by Frederick P. Brooks Jr.
-- [Growing Object-Oriented Software, Guided by Tests](http://www.amazon.com/gp/product/0321503627/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0321503627&linkCode=as2&tag=marcaube-20&linkId=SRVB7LWU7XG22KFK) by Steve Freeman
+- [Growing Object-Oriented Software, Guided by Tests](http://www.amazon.com/gp/product/0321503627/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0321503627&linkCode=as2&tag=marcaube-20&linkId=SRVB7LWU7XG22KFK) by Steve Freeman and Nat Pryce
 
 ## 2015
 
