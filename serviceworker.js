@@ -1,4 +1,4 @@
-const version = '201910271245'
+const version = '201910271250'
 const offlinePage = '/offline'
 
 const staticCacheName = version + '_staticfiles'
@@ -24,7 +24,7 @@ function clearOldCaches() {
 }
 
 function trimCache(cacheName, maxItems) {
-    cacheName.open(cache => {
+    caches.open(cacheName).then(cache => {
         cache.keys().then(keys => {
             if (keys.length > maxItems) {
                 // Delete the oldest item from the cache and check again...
@@ -123,9 +123,9 @@ addEventListener('fetch', event => {
                 // Return the response from the cache
                 if (response) {
                     // Try to update the cached image so it doesn't go too stale
-                    event.waitUntil(
+                    event.waitUntil(() => {
                         return addToCache(request, imagesCacheName)
-                    )
+                    })
 
                     return response
                 }
@@ -168,7 +168,7 @@ addEventListener('fetch', event => {
 
 // Trim the caches, and keep only the freshest pages and images
 addEventListener('message', event => {
-    if (messageEvent.data == 'trimCaches') {
+    if (event.data == 'trimCaches') {
         trimCache(pagesCacheName, maxPages)
         trimCache(imagesCacheName, maxImages)
     }

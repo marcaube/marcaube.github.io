@@ -24,7 +24,7 @@
         if (navigator.serviceWorker.controller) {
             window.addEventListener('load', function () {
                 navigator.serviceWorker.controller.postMessage('trimCaches');
-            }
+            })
         }
     }
 </script>
