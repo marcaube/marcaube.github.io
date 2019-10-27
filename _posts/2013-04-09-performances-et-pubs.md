@@ -24,7 +24,7 @@ Comme les pubs sont affichées dans des fragments séparés, on ne peut pas regr
 
 On passe maintenant à un temps de chargement moyen de 500-600ms, une fois que la cache de la base de données est *primée*, sinon c'est quelques secondes.
 
-Une fois qu'on passe sur mobile, le temps de chargement se compte en secondes. Beaucoup d'efforts jetés à l'eau pour quelques pubs …
+Une fois qu'on passe sur mobile, le temps de chargement se compte en secondes. Beaucoup d'efforts jetés à l'eau pour quelques pubs...
 
 ## Une piste de solution
 Au lieu de mettre les pubs dans un fragment de *template*, il pourrait y avoir un API permettant de demander la pub (l'image) à l'aide d'un URL x-y-z. L'URL devrait être unique à chaque zones (selon la page, l'endroit dans la page, le format, etc.) et la pub affichée pour un même URL changerait dans le temps.
@@ -33,7 +33,7 @@ Ex: `pattern: /bannieres/{page}/{format}/{zone}`
 
 Il faudrait ensuite spécifier que les images derrière cet URL sont *non-cacheable*. Encore mieux, servir ces images à partir d'un sous-domaine sans cookies où rien n'est mis en cache.
 
-Ça semble bien non ? Oui mais non. Ça règle le problème de l'image mais pas du lien qui va avec (ou du fragment de template) … Ça, c'est du code qui doit changer selon la pub qui est affiché, alors on ne peut toujours pas utiliser la cache du navigateur.
+Ça semble bien non ? Oui mais non. Ça règle le problème de l'image mais pas du lien qui va avec (ou du fragment de template)... Ça, c'est du code qui doit changer selon la pub qui est affiché, alors on ne peut toujours pas utiliser la cache du navigateur.
 
 ## Solution JS
 Ensuite, on pourrait contourner le problème en AJAX, comme le font Google et compagnie.
