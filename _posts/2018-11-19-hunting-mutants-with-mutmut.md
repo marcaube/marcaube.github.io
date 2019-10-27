@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Hunting Mutants with Mutmut
+image: hunting-mutants-with-mutmut.jpg
 description: "There are many reasons why you might want to write tests for your code: to prove it works as expected, to prevent bugs from coming back..."
 canonical: https://medium.com/poka-techblog/hunting-mutants-with-mutmut-5f575b625598
 ---
