@@ -21,7 +21,7 @@ Of course there's always someone that will know more than you on any given subje
 
 Of course you can't have the answer to every possible question, and you are not expected to. People will come from different angles and get stuck on different details. You won't be able to anticipate and prepare for every question. Take it as an opportunity to dig deeper into the subject. Just be honest about what you don't know, and offer to find the answers.
 
-In retrospect, I'm glad that I took the time to respond to the CFP. It's given me the opportunity to see I side of conferences I've never seen before. I've met some new people, and made some new friends – hopefully they feel the same way!
+In retrospect, I'm glad that I took the time to respond to the CFP. It's given me the opportunity to see a side of conferences I've never seen before. I've met some new people, and made some new friends – hopefully they feel the same way!
 
 I also had the chance to bring 10 of my colleagues with me, and for some it was their first conference. I was delighted to see the spark in their eyes as they stepped out of a talk that blew their mind. The whole team was bombarded with tools and ideas. If you code "in a vacuum", a lot of ideas at conferences will be out-of-your-box. That's a good thing.
 
@@ -29,7 +29,7 @@ Now that the proverbial ice is broken, and I can see myself doing that again in 
 
 I've only had the chance to send a quick tweet after the conference, which I feel is woefully inadequate given the amount of work that went into this, so I want to do it again here.
 
-I'd like to thank everyone involved with Confoo: the organizers, Anna and Yann, who are doing an amazing labour of love; the group of friendly volunteers, who helped the conference run very smoothly; the sponsors who made it possible to fly speakers in, and feed an army of geeks; the attendees who came to my talks, gave very helpful feedback and started really interesting discussions; and also the other speakers, with whom I bounced a couple of ideas, had a couple of beers, and who gave me a lot of good tips. 
+I'd like to thank everyone involved with Confoo: the organizers, Anna and Yann, who are doing an amazing labour of love; the group of friendly volunteers, who helped the conference run very smoothly; the sponsors who made it possible to fly speakers in, and feed an army of geeks; the attendees who came to my talks, gave very helpful feedback and started really interesting discussions; and also the other speakers, with whom I bounced a couple of ideas, had a couple of beers, and who gave me a lot of good tips.
 
 Thanks to all of you, see you next year!
 
