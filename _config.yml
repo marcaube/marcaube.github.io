@@ -8,6 +8,7 @@ baseurl: ""
 paginate_path: "/page/page:num/"
 permalink: /:categories/:year/:month/:title
 
+plugins: [jekyll-paginate]
 markdown: kramdown
 highlighter: rouge
 paginate: 5
