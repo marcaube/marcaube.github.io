@@ -196,8 +196,6 @@ def is_already_in_db(hash, hashes):
 
 We knew our new strategy worked when the script started classifying images all by itself, never asking for user input 👌
 
-![](/assets/posts/2019-09-25-categorizing-images-in-python/12.gif)
-
 Here's what our database looked like after letting the script run for a while to make sure it prompted us for all the possible images. All the hashes, and all the associated answers.
 
 ```txt
