@@ -1,4 +1,4 @@
-const version = '201910271224'
+const version = '201910271245'
 const offlinePage = '/offline'
 
 const staticCacheName = version + '_staticfiles'
@@ -14,15 +14,32 @@ const cacheList = [
     pagesCacheName,
 ]
 
+function clearOldCaches() {
+    return caches.keys().then(keys => {
+        return Promise.all(keys
+            .filter(key => !cacheList.includes(key))
+            .map(key => caches.delete(key))
+        )
+    })
+}
+
 function trimCache(cacheName, maxItems) {
     cacheName.open(cache => {
-        cache.keys().then(items => {
-            if (items.length > maxItems) {
+        cache.keys().then(keys => {
+            if (keys.length > maxItems) {
                 // Delete the oldest item from the cache and check again...
-                cache.delete(items[0]).then({
+                cache.delete(keys[0]).then(() => {
                     trimCache(cacheName, maxItems)
                 })
             }
+        })
+    })
+}
+
+function addToCache(request, cacheName) {
+    fetch(request).then(response => {
+        caches.open(cacheName).then(cache => {
+            return cache.put(request, response)
         })
     })
 }
@@ -60,16 +77,8 @@ addEventListener('install', event => {
 // Clean-up old cache files when activating a new SW version
 addEventListener('activate', event => {
     event.waitUntil(
-        caches.keys().then(cacheNames => {
-            return Promise.all(
-                cacheNames.map(cacheName => {
-                    if (!cacheList.includes(cacheName)) {
-                        return caches.delete(cacheName)
-                    }
-                })
-            ).then(() => {
-                return clients.claim()
-            })
+        clearOldCaches().then(() => {
+            return clients.claim()
         })
     )
 })
@@ -115,11 +124,7 @@ addEventListener('fetch', event => {
                 if (response) {
                     // Try to update the cached image so it doesn't go too stale
                     event.waitUntil(
-                        fetch(request).then(response => {
-                            caches.open(imagesCacheName).then(imageCache => {
-                                return imageCache.put(request, response)
-                            })
-                        })
+                        return addToCache(request, imagesCacheName)
                     )
 
                     return response
@@ -163,7 +168,7 @@ addEventListener('fetch', event => {
 
 // Trim the caches, and keep only the freshest pages and images
 addEventListener('message', event => {
-    if (messageEvent.data == 'clean up caches') {
+    if (messageEvent.data == 'trimCaches') {
         trimCache(pagesCacheName, maxPages)
         trimCache(imagesCacheName, maxImages)
     }

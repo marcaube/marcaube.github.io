@@ -23,7 +23,7 @@
 
         if (navigator.serviceWorker.controller) {
             window.addEventListener('load', function () {
-                navigator.serviceWorker.controller.postMessage('clean up caches');
+                navigator.serviceWorker.controller.postMessage('trimCaches');
             }
         }
     }
