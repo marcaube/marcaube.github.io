@@ -1,11 +1,13 @@
-const version = '201910271150'
+const version = '201910271200'
 const offlinePage = '/offline'
 
 const staticCacheName = version + '_staticfiles'
 const imageCacheName = version + '_images'
+const pageCacheName = version + '_pages'
 const cacheList = [
     staticCacheName,
     imageCacheName,
+    pageCacheName,
 ]
 
 // Install the service worker and pre-cache top-level pages
@@ -13,7 +15,7 @@ addEventListener('install', installEvent => {
     installEvent.waitUntil(
         caches.open(staticCacheName).then(staticCache => {
             return staticCache.addAll([
-                // Pages
+                // Top-level pages
                 offlinePage,
                 '/',
                 '/articles',
@@ -30,6 +32,8 @@ addEventListener('install', installEvent => {
                 '/assets/js/dropcap.min.js',
                 '/assets/js/responsive-nav.min.js',
                 '/assets/js/scripts.js',
+
+                // Layout images
                 '/assets/img/workstation.jpg',
             ])
         })
@@ -67,8 +71,8 @@ addEventListener('fetch', event => {
                 // Cache the response
                 let copy = response.clone()
                 event.waitUntil(
-                    caches.open(staticCacheName).then(staticCache => {
-                        return staticCache.put(request, copy)
+                    caches.open(pageCacheName).then(pageCache => {
+                        return pageCache.put(request, copy)
                     })
                 )
 
