@@ -1,9 +1,9 @@
-const version = '201910271250'
+const version = '201910271300'
 const offlinePage = '/offline'
 
 const staticCacheName = version + '_staticfiles'
-const imagesCacheName = version + '_images'
-const pagesCacheName = version + '_pages'
+const imagesCacheName = 'images'
+const pagesCacheName = 'pages'
 
 const maxPages = 20     // Maximum number of pages to cache
 const maxImages = 30    // Maximum number of images to cache
