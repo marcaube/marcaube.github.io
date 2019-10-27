@@ -29,7 +29,12 @@
         }
     </style>
 
-    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    {% if page.canonical %}
+        <link rel="canonical" href="{{ page.canonical }}">
+    {% else %}
+        <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    {% endif %}
+
     <link rel="author" href="humans.txt">
 
     <link rel="serviceworker" href="/serviceworker.js">
