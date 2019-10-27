@@ -1,4 +1,4 @@
-const version = '201910271138'
+const version = '201910271150'
 const offlinePage = '/offline'
 
 const staticCacheName = version + '_staticfiles'
@@ -92,6 +92,15 @@ addEventListener('fetch', event => {
             caches.match(request).then(response => {
                 // Return the response from the cache
                 if (response) {
+                    // Try to update the cached image so it doesn't go too stale
+                    event.waitUntil(
+                        fetch(request).then(response => {
+                            caches.open(imageCacheName).then(imageCache => {
+                                return imageCache.put(request, response)
+                            })
+                        })
+                    )
+
                     return response
                 }
 
