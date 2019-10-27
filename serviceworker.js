@@ -1,18 +1,35 @@
-const version = '201910271200'
+const version = '201910271224'
 const offlinePage = '/offline'
 
 const staticCacheName = version + '_staticfiles'
-const imageCacheName = version + '_images'
-const pageCacheName = version + '_pages'
+const imagesCacheName = version + '_images'
+const pagesCacheName = version + '_pages'
+
+const maxPages = 20     // Maximum number of pages to cache
+const maxImages = 30    // Maximum number of images to cache
+
 const cacheList = [
     staticCacheName,
-    imageCacheName,
-    pageCacheName,
+    imagesCacheName,
+    pagesCacheName,
 ]
 
+function trimCache(cacheName, maxItems) {
+    cacheName.open(cache => {
+        cache.keys().then(items => {
+            if (items.length > maxItems) {
+                // Delete the oldest item from the cache and check again...
+                cache.delete(items[0]).then({
+                    trimCache(cacheName, maxItems)
+                })
+            }
+        })
+    })
+}
+
 // Install the service worker and pre-cache top-level pages
-addEventListener('install', installEvent => {
-    installEvent.waitUntil(
+addEventListener('install', event => {
+    event.waitUntil(
         caches.open(staticCacheName).then(staticCache => {
             return staticCache.addAll([
                 // Top-level pages
@@ -41,8 +58,8 @@ addEventListener('install', installEvent => {
 })
 
 // Clean-up old cache files when activating a new SW version
-addEventListener('activate', activateEvent => {
-    activateEvent.waitUntil(
+addEventListener('activate', event => {
+    event.waitUntil(
         caches.keys().then(cacheNames => {
             return Promise.all(
                 cacheNames.map(cacheName => {
@@ -71,7 +88,7 @@ addEventListener('fetch', event => {
                 // Cache the response
                 let copy = response.clone()
                 event.waitUntil(
-                    caches.open(pageCacheName).then(pageCache => {
+                    caches.open(pagesCacheName).then(pageCache => {
                         return pageCache.put(request, copy)
                     })
                 )
@@ -99,7 +116,7 @@ addEventListener('fetch', event => {
                     // Try to update the cached image so it doesn't go too stale
                     event.waitUntil(
                         fetch(request).then(response => {
-                            caches.open(imageCacheName).then(imageCache => {
+                            caches.open(imagesCacheName).then(imageCache => {
                                 return imageCache.put(request, response)
                             })
                         })
@@ -113,7 +130,7 @@ addEventListener('fetch', event => {
                     // Cache the response
                     let copy = response.clone()
                     event.waitUntil(
-                        caches.open(imageCacheName).then(imageCache => {
+                        caches.open(imagesCacheName).then(imageCache => {
                             return imageCache.put(request, copy)
                         })
                     )
@@ -142,4 +159,12 @@ addEventListener('fetch', event => {
             return fetch(request)
         })
     )
+})
+
+// Trim the caches, and keep only the freshest pages and images
+addEventListener('message', event => {
+    if (messageEvent.data == 'clean up caches') {
+        trimCache(pagesCacheName, maxPages)
+        trimCache(imagesCacheName, maxImages)
+    }
 })

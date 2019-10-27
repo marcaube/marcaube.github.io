@@ -20,5 +20,11 @@
 <script>
     if (navigator.serviceWorker) {
         navigator.serviceWorker.register('/serviceworker.js');
+
+        if (navigator.serviceWorker.controller) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.controller.postMessage('clean up caches');
+            }
+        }
     }
 </script>
