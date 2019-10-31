@@ -1,4 +1,4 @@
-const version = '201910271300'
+const version = '201910310805'
 const offlinePage = '/offline'
 
 const staticCacheName = version + '_staticfiles'
@@ -49,11 +49,7 @@ addEventListener('install', event => {
     event.waitUntil(
         caches.open(staticCacheName).then(staticCache => {
             return staticCache.addAll([
-                // Top-level pages
                 offlinePage,
-                '/',
-                '/articles',
-                '/books',
 
                 // Styling
                 // TODO: add font files
