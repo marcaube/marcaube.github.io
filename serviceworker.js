@@ -1,4 +1,4 @@
-const version = '201910310805'
+const version = '202006162150'
 const offlinePage = '/offline'
 
 const staticCacheName = version + '_staticfiles'
