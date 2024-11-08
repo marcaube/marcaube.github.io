@@ -13,10 +13,6 @@
     anchors.add('.post h2, .post h3');
 </script>
 
-{% if site.google_analytics %}
-    {% include google_analytics.html %}
-{% endif %}
-
 <script>
     if (navigator.serviceWorker) {
         navigator.serviceWorker.register('/serviceworker.js');
