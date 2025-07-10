@@ -29,7 +29,7 @@ navigation:
 
 social:
    github: marcaube
-   twitter: maaube
+   mastodon: https://mastodon.online/@maaube
 
 github:
     repository_url: https://github.com/marcaube/marcaube.github.io
