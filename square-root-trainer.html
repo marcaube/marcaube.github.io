@@ -31,16 +31,22 @@ permalink: /square-root-trainer/
         <p class="text-2xl font-bold">{{ number }}</p>
     </div>
 
-    <div class="grid grid-cols-3 gap-2 mb-4">
+    <form @submit.prevent="makeGuess" class="flex items-center justify-center mb-4 space-x-2">
+        <input
+                v-model.number="userGuess"
+                type="number"
+                step="0.01"
+                class="w-32 border px-3 py-2 rounded-lg text-center"
+                placeholder="Your guess"
+                autofocus
+        />
         <button
-                v-for="guess in options"
-                :key="guess"
-                class="bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-xl"
-                @click="makeGuess(guess)"
+                type="submit"
+                class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-xl"
         >
-            {{ guess.toFixed(1) }}
+            Submit
         </button>
-    </div>
+    </form>
 
     <div class="text-center mb-4">
         <p class="text-lg" :class="{ 'text-green-600': isCorrect, 'text-red-600': isCorrect === false }">
@@ -65,7 +71,7 @@ permalink: /square-root-trainer/
                 max: 100,
                 number: null,
                 correctRoot: null,
-                options: [],
+                userGuess: null,
                 feedback: '',
                 isCorrect: null,
                 score: 0,
@@ -78,30 +84,23 @@ permalink: /square-root-trainer/
             newQuestion() {
                 this.feedback = '';
                 this.isCorrect = null;
+                this.userGuess = null;
 
                 this.number = this.randInt(this.min, this.max);
                 this.correctRoot = Math.sqrt(this.number);
-
-                // Build options: correct answer ± small variations
-                const roots = new Set([
-                    this.round(this.correctRoot, 1)
-                ]);
-                while (roots.size < 6) {
-                    const offset = (Math.random() - 0.5) * 4; // up to ±2
-                    const alt = this.round(this.correctRoot + offset, 1);
-                    if (alt > 0 && alt < 20) {
-                        roots.add(alt);
-                    }
-                }
-
-                this.options = Array.from(roots).sort((a, b) => a - b);
             },
 
-            makeGuess(guess) {
-                this.games++;
-                const error = Math.abs(guess - this.correctRoot);
+            makeGuess() {
+                if (this.userGuess === null || isNaN(this.userGuess)) {
+                    this.feedback = 'Please enter a valid number.';
+                    this.isCorrect = null;
+                    return;
+                }
 
-                console.log({ guess, expected: this.correctRoot });
+                this.games++;
+                const error = Math.abs(this.userGuess - this.correctRoot);
+
+                console.log(`User guess: ${this.userGuess}, Correct root: ${this.correctRoot}, Error: ${error}`)
 
                 if (error <= this.tolerance) {
                     this.feedback = `✅ Correct! √${this.number} ≈ ${this.correctRoot.toFixed(3)}`;
@@ -117,11 +116,6 @@ permalink: /square-root-trainer/
 
             randInt(min, max) {
                 return Math.floor(Math.random() * (max - min + 1)) + min;
-            },
-
-            round(val, decimals = 1) {
-                const factor = Math.pow(10, decimals);
-                return Math.round(val * factor) / factor;
             },
         },
 
