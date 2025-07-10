@@ -1,7 +1,7 @@
 ---
 layout: null
-title: Perfect Square Root Trainer
-permalink: /perfect-square-root-trainer/
+title: Square Root Estimation Trainer
+permalink: /square-root-trainer/
 ---
 
 {% raw %}
@@ -10,35 +10,35 @@ permalink: /perfect-square-root-trainer/
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Perfect Square Root Trainer</title>
+    <title>Square Root Estimation Trainer</title>
     <script src="https://unpkg.com/vue@3.4.21/dist/vue.global.prod.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
 <div id="app" class="max-w-md w-full bg-white rounded-2xl shadow-lg p-6">
-    <h1 class="text-xl font-bold mb-4 text-center">🧠 Square Root Trainer</h1>
+    <h1 class="text-xl font-bold mb-4 text-center">🧠 Square Root Estimation</h1>
 
     <div class="mb-4">
-        <label class="block text-sm font-medium text-gray-700">Choose range of roots:</label>
+        <label class="block text-sm font-medium text-gray-700">Number range:</label>
         <div class="flex space-x-2 mt-1">
-            <input v-model.number="minRoot" type="number" min="1" max="100" class="w-1/2 border rounded px-2 py-1"/>
-            <input v-model.number="maxRoot" type="number" min="1" max="100" class="w-1/2 border rounded px-2 py-1"/>
+            <input v-model.number="min" type="number" min="1" max="100" class="w-1/2 border rounded px-2 py-1"/>
+            <input v-model.number="max" type="number" min="1" max="100" class="w-1/2 border rounded px-2 py-1"/>
         </div>
     </div>
 
     <div class="text-center mb-4">
         <p class="text-lg">What is the square root of</p>
-        <p class="text-2xl font-bold">{{ square }}</p>
+        <p class="text-2xl font-bold">{{ number }}</p>
     </div>
 
-    <div class="grid grid-cols-4 gap-2 mb-4">
+    <div class="grid grid-cols-3 gap-2 mb-4">
         <button
                 v-for="guess in options"
                 :key="guess"
                 class="bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-xl"
                 @click="makeGuess(guess)"
         >
-            {{ guess }}
+            {{ guess.toFixed(1) }}
         </button>
     </div>
 
@@ -61,15 +61,16 @@ permalink: /perfect-square-root-trainer/
     createApp({
         data() {
             return {
-                minRoot: 1,
-                maxRoot: 100,
-                square: null,
-                correctAnswer: null,
+                min: 1,
+                max: 100,
+                number: null,
+                correctRoot: null,
                 options: [],
                 feedback: '',
                 isCorrect: null,
                 score: 0,
                 games: 0,
+                tolerance: 0.2,
             }
         },
 
@@ -78,38 +79,50 @@ permalink: /perfect-square-root-trainer/
                 this.feedback = '';
                 this.isCorrect = null;
 
-                const root = this.rand(this.minRoot, this.maxRoot);
-                this.correctAnswer = root;
-                this.square = root * root;
+                this.number = this.randInt(this.min, this.max);
+                this.correctRoot = Math.sqrt(this.number);
 
-                // Generate plausible options
-                const optionSet = new Set([root]);
-                while (optionSet.size < 8) {
-                    optionSet.add(this.rand(this.minRoot, this.maxRoot));
+                // Build options: correct answer ± small variations
+                const roots = new Set([
+                    this.round(this.correctRoot, 1)
+                ]);
+                while (roots.size < 6) {
+                    const offset = (Math.random() - 0.5) * 4; // up to ±2
+                    const alt = this.round(this.correctRoot + offset, 1);
+                    if (alt > 0 && alt < 20) {
+                        roots.add(alt);
+                    }
                 }
-                this.options = Array.from(optionSet).sort((a, b) => a - b);
+
+                this.options = Array.from(roots).sort((a, b) => a - b);
             },
 
             makeGuess(guess) {
                 this.games++;
+                const error = Math.abs(guess - this.correctRoot);
 
-                console.log({ guess, expected: this.correctAnswer });
+                console.log({ guess, expected: this.correctRoot });
 
-                if (guess === this.correctAnswer) {
-                    this.feedback = `✅ Correct! √${this.square} = ${this.correctAnswer}`;
+                if (error <= this.tolerance) {
+                    this.feedback = `✅ Correct! √${this.number} ≈ ${this.correctRoot.toFixed(3)}`;
                     this.score++;
                     this.isCorrect = true;
                 } else {
-                    this.feedback = `❌ Wrong! √${this.square} = ${this.correctAnswer}`;
+                    this.feedback = `❌ Wrong! √${this.number} ≈ ${this.correctRoot.toFixed(3)}`;
                     this.isCorrect = false;
                 }
 
                 setTimeout(this.newQuestion, 1200);
             },
 
-            rand(min, max) {
+            randInt(min, max) {
                 return Math.floor(Math.random() * (max - min + 1)) + min;
-            }
+            },
+
+            round(val, decimals = 1) {
+                const factor = Math.pow(10, decimals);
+                return Math.round(val * factor) / factor;
+            },
         },
 
         mounted() {
