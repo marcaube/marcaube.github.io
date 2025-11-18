@@ -1,5 +1,6 @@
 +++
 title = "Categorizing images in Python"
+path = "2019/09/categorizing-images-in-python"
 date = 2019-09-25
 description = "How we brute forced a computer vision challenge with Python at the last NorthSec CTF in Montreal."
 
@@ -7,7 +8,6 @@ description = "How we brute forced a computer vision challenge with Python at th
 image = "categorizing-images-in-python.jpg"
 canonical = "https://medium.com/poka-techblog/ctf-write-up-categorizing-images-in-python-ab40e4aa6a4c"
 +++
-
 _This is a repost of a piece I wrote [on Medium](https://medium.com/poka-techblog/ctf-write-up-categorizing-images-in-python-ab40e4aa6a4c)._
 
 During the last [NorthSec](https://nsec.io) CTF in Montreal, there was a fun little challenge related to "computer vision". I put that in quotes, because we ended up with a quick and dirty solution that had very little to do with computer vision. Here's the description of the challenge...

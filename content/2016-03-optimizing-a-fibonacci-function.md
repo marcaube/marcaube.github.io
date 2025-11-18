@@ -1,8 +1,8 @@
 +++
 title = "Optimizing a fibonacci function"
+path = "2016/03/optimizing-a-fibonacci-function"
 date = 2016-03-30
 +++
-
 A couple of days ago, one of my colleague was talking about a time when he was interviewed, and had to solve a bunch of programming puzzles. I like to solve puzzles, even if I don't think that [they're good interview questions](https://zachholman.com/posts/startup-interviewing-is-fucked/) ([cache](/cache/fbac56b711bcf388ec43bfb29b934e29.html)).
 
 These kind of code challenge tend to favour people with a CS background, and most of the time have nothing to do with the job the company is interviewing for.

@@ -1,8 +1,8 @@
 +++
 title = "Réaction au nouveau site de Tourisme Laurentides"
+path = "2013/06/reaction-refonte-laurentides"
 date = 2013-06-28
 +++
-
 Tourisme Laurentides lançait dernièrement le nouveau look de son [site web](http://laurentides.com), refonte qui était méritée depuis bien longtemps ([voir le site à la fin avril](http://web.archive.org/web/20130429161615/http://www.laurentides.com/)).
 
 Le résultat est très agréable à l'oeil et ça va faire du bien à la région d'avoir un site web à son image. Je dis donc chapeau à l'équipe qui a fait le design!

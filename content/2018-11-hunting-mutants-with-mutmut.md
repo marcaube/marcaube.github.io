@@ -1,5 +1,6 @@
 +++
 title = "Hunting Mutants with Mutmut"
+path = "2018/11/hunting-mutants-with-mutmut"
 date = 2018-11-19
 description = "There are many reasons why you might want to write tests for your code: to prove it works as expected, to prevent bugs from coming back..."
 
@@ -7,7 +8,6 @@ description = "There are many reasons why you might want to write tests for your
 image = "hunting-mutants-with-mutmut.jpg"
 canonical = "https://medium.com/poka-techblog/hunting-mutants-with-mutmut-5f575b625598"
 +++
-
 _This is a repost of a piece I wrote [on Medium](https://medium.com/poka-techblog/hunting-mutants-with-mutmut-5f575b625598)._
 
 There are many reasons why you might want to write tests for your code: to prove it works as expected, to prevent bugs from coming back after you fix them, or simply to shorten the feedback loop between the moment you type in your editor to the moment you run your new piece of code.

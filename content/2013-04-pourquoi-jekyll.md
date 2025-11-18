@@ -1,8 +1,8 @@
 +++
 title = "Pourquoi utiliser Jekyll.rb et Github Pages ?"
+path = "2013/04/pourquoi-jekyll"
 date = 2013-04-26
 +++
-
 ## Mon aventure avec un *super* hébergeur
 L'aventure de mon site web commence avec l'achat d'un nom de domaine et d'un forfait d'hébergement chez un hébergeur très populaire, dont je vais taire le nom.
 

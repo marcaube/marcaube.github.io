@@ -1,6 +1,6 @@
 +++
 title = "Offline"
-date = 2013-01-01
+date = 2000-01-01
 +++
 
 # It looks like you're offline!

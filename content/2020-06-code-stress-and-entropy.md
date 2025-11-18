@@ -1,5 +1,6 @@
 +++
 title = "Code, stress and entropy"
+path = "2020/06/code-stress-and-entropy"
 date = 2020-06-16
 description = "Musings about the parallels between computer systems, physics, and biology to understand how we can make our systems better."
 
@@ -7,7 +8,6 @@ description = "Musings about the parallels between computer systems, physics, an
 image = "peter-nguyen-fsgyO8vF7do-unsplash.jpg"
 canonical = "https://medium.com/poka-techblog/code-stress-and-entropy-920c8880744d"
 +++
-
 _This is a repost of a piece I wrote [on Medium](https://medium.com/poka-techblog/code-stress-and-entropy-920c8880744d)._
 
 ## Code as a living thing

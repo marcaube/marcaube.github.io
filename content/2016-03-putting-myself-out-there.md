@@ -1,8 +1,8 @@
 +++
 title = "Putting myself out there"
+path = "2016/03/putting-myself-out-there"
 date = 2016-03-10
 +++
-
 Like a lot of adventures, it all started with *"why not?"*, without putting too much thought into it. Confoo being a sizable conference, I didn't expect to get picked. But I sent two proposals anyway, on topics that I am very passionate about. One was on software testing – most specifically mutation testing. The other talk would have been a talk on hexagonal architecture. To my surprise, the former ended up being selected.
 
 While filling a web form with a short abstract seems pretty easy, it may be the hardest thing that I've done last year. At the very moment I clicked on the submit button, I knew that I was now committed to speak in front of my peers. For an introvert, that's a terrifying commitment.

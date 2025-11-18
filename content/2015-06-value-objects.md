@@ -1,8 +1,8 @@
 +++
 title = "Value Objects"
+path = "2015/06/value-objects"
 date = 2015-06-13
 +++
-
 Value objects are an important building block of domain-driven design. They are *small* objects that encapsulate value, validation and behaviour. You can use them to group related values together and provide functionality related to what they represent.
 
 > A small simple object, like money or a date range, whose equality isn't based on identity.

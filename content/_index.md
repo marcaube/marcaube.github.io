@@ -5,4 +5,6 @@ paginate_by = 5
 sort_by = "date"
 # Use the index.html template
 template = "index.html"
+# Make the section transparent (don't render pages without dates)
+transparent = false
 +++

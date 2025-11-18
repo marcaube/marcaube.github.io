@@ -1,8 +1,8 @@
 +++
 title = "Performance web et publicités (suite)"
+path = "2013/05/suite-perfs-et-pubs"
 date = 2013-05-13
 +++
-
 Suite à [mon billet](/2013/04/performances-et-pubs/) sur un problème de *perf* relié à l'affichage de publicités, j'ai beaucoup cogité et j'ai fini par écrire une solution en JS.
 
 ## Définir une zone

@@ -1,8 +1,8 @@
 +++
 title = "Choosing your project's dependencies"
+path = "2015/06/choosing-dependencies"
 date = 2015-06-01
 +++
-
 If you work on any non-trivial project, chances are you'll install one or many external dependencies at some point. It's a good decision to direct your limited resources at business-specific problems and use generic packages for boilerplate functionalities like sending emails, dealing with databases, parsing markup, etc.
 
 However, you shouldn't bring just any library in your codebase. While [Packagist](https://packagist.org) has, at the time of writing, around 60000 packages you *could* use in your project, most of them are not *production* quality.

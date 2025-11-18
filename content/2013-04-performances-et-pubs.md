@@ -1,8 +1,8 @@
 +++
 title = "Performance web et publicités"
+path = "2013/04/performances-et-pubs"
 date = 2013-04-09
 +++
-
 ## Préambule
 Ces derniers temps, j'ai été confronté à un problème de performance sur le site d'un client. Le site est développé avec [Symfony2](http://symfony.com/), utilise l'ORM [Doctrine2](http://www.doctrine-project.org/), il est responsive, utilise [adaptive-images](http://adaptive-images.com/) pour servir des images optimisées, etc etc.
 

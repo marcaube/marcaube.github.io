@@ -1,6 +1,6 @@
 +++
 title = "My bookshelf"
-date = 2013-01-01
+date = 2000-01-01
 +++
 
 Here's a list of books I've read that had an influence on how I work and how I reason about code, architecture and what it means to be a developer.

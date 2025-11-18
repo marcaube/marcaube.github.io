@@ -1,8 +1,8 @@
 +++
 title = "Domain objects and code organization"
+path = "2013/11/entities-domain-and-models"
 date = 2013-11-23
 +++
-
 A few days – or was it weeks – ago, I answered hastily to [a question](https://groups.google.com/forum/#!topic/symfony2/tPjJ6UF_oZk) on the Symfony2 Google Group. The question is simple but the answer is not : How do your organise your code in a Symfony project?
 
 I've had some time to think about it and wanted to elaborate on the subject. Writing makes me think, and thinking is good.

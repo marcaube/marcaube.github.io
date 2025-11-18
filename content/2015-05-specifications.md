@@ -1,8 +1,8 @@
 +++
 title = "'Design Pattern: Specification'"
+path = "2015/05/specifications"
 date = 2015-05-24
 +++
-
 The specification pattern is a software design pattern used to codify business rules that state something about an object. These simple predicates determine if an object's state satisfies a certain business criteria. They can then be combined to form [composite specifications](https://en.wikipedia.org/wiki/Specification_pattern) using logical operators.
 
 Use a specification to encapsulate a business rule which does not belong inside entities or value objects, but is applied to them. Use them to:

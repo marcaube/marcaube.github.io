@@ -1,9 +1,9 @@
 +++
 title = "Quick bash tips"
+path = "2016/04/two-quick-bash-tips"
 date = 2016-04-05
 description = "Just two simple bash tips that I picked up today; how to escape a frozen SSH session, and how to sequentially call a list of URLs."
 +++
-
 ## Escape a frozen SSH session
 
 Quite often, I'm working on a project and running commands on the remote server via SSH. Also quite often, I'll step away from the keyboard long enough or execute an `ls` in a folder with a stale NFS mount and my SSH session will freeze. My usual solution to get myself out of this situation is to kill my whole terminal and start over.
