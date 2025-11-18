@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="articles">
+    <h1 class="pageTitle">Articles</h1>
+    <ul class="posts noList">
+        {% for page in section.pages %}
+            <li>
+                <span class="date">{{ page.date | date(format="%B %d, %Y") }}</span>
+                <h3><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
+                <p class="description">
+                    {% if page.description %}
+                        {{ page.description | striptags | truncate(length=120) }}
+                    {% else %}
+                        {{ page.content | striptags | truncate(length=120) }}
+                    {% endif %}
+                </p>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock content %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="home" id="home">
+    <h1 class="pageTitle">Recent Posts</h1>
+
+    <ul class="posts noList">
+        {% for page in paginator.pages %}
+            <li>
+                <span class="date">{{ page.date | date(format="%B %d, %Y") }}</span>
+                <h3><a class="post-link" href="{{ page.permalink }}">{{ page.title }}</a></h3>
+                <p class="description">{% if page.description %}{{ page.description | striptags | truncate(length=250) }}{% else %}{{ page.content | striptags | truncate(length=250) }}{% endif %}</p>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Pagination links -->
+    <div class="pagination">
+        {% if paginator.previous %}
+            <a href="{{ paginator.previous }}" class="previous button__outline">Newer Posts</a>
+        {% endif %}
+
+        {% if paginator.next %}
+            <a href="{{ paginator.next }}" class="next button__outline">Older Posts</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}
