@@ -8,3 +8,4 @@ add_cache_paths.py
 fix_trainers.py
 generate_cache_html.py
 regenerate_cache.py
+convert_cache_to_zola.py
