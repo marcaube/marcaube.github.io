@@ -8,7 +8,7 @@
         {% for page in paginator.pages %}
             <li>
                 <span class="date">{{ page.date | date(format="%B %d, %Y") }}</span>
-                <h3><a class="post-link" href="{{ page.permalink }}">{{ page.title }}</a></h3>
+                <h3><a class="post-link" href="{{ page.permalink | trim_end_matches(pat="/") }}">{{ page.title }}</a></h3>
                 <p class="description">{% if page.description %}{{ page.description | striptags | truncate(length=250) }}{% else %}{{ page.content | striptags | truncate(length=250) }}{% endif %}</p>
             </li>
         {% endfor %}

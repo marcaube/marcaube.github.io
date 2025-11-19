@@ -26,7 +26,7 @@
     <!-- POST NAVIGATION -->
     <nav class="postNav clearfix">
         {% if page.earlier %}
-            <a class="prev{% if page.earlier.extra.image %} image{% endif %}" href="{{ page.earlier.permalink }}"><span>&laquo;&nbsp;{{ page.earlier.title }}</span>
+            <a class="prev{% if page.earlier.extra.image %} image{% endif %}" href="{{ page.earlier.permalink | trim_end_matches(pat="/") }}"><span>&laquo;&nbsp;{{ page.earlier.title }}</span>
                 {% if page.earlier.extra.image %}
                     <img src="{{ get_url(path="assets/img/" ~ page.earlier.extra.image) }}" alt="">
                 {% endif %}
@@ -34,7 +34,7 @@
         {% endif %}
 
         {% if page.later %}
-            <a class="next{% if page.later.extra.image %} image{% endif %}" href="{{ page.later.permalink }}"><span>{{ page.later.title }}&nbsp;&raquo;</span>
+            <a class="next{% if page.later.extra.image %} image{% endif %}" href="{{ page.later.permalink | trim_end_matches(pat="/") }}"><span>{{ page.later.title }}&nbsp;&raquo;</span>
                 {% if page.later.extra.image %}
                     <img src="{{ get_url(path="assets/img/" ~ page.later.extra.image) }}" alt="">
                 {% endif %}
