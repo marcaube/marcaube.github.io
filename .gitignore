@@ -3,3 +3,7 @@ config.codekit
 public
 convert_posts.py
 reorganize_posts.py
+convert_cache.py
+add_cache_paths.py
+fix_trainers.py
+generate_cache_html.py

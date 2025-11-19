@@ -20,6 +20,10 @@ feed_filenames = ["atom.xml"]
 # Taxonomies (tags, categories)
 taxonomies = []
 
+[link_checker]
+# Skip checking internal links with anchors (cache files have broken anchors)
+internal_level = "warn"
+
 [markdown]
 # Syntax highlighting
 highlight_code = true

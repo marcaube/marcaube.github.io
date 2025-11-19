@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front-end performance for web designers and front-end developers – CSS Wizardry – CSS, OOCSS, front-end architecture, performance and more, by Harry Roberts</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo"><a href="/">Marc Aube</a></h1>
+        </div>
+    </header>
+    <div class="content">
+        <div class="container">
+            <article class="post">
+                <p class="meta">
+                    <a href="http://csswizardry.com/2013/01/front-end-performance-for-web-designers-and-front-end-developers/" target="_blank">Article put in cache</a> for perenniality, <br/> 
+                    contact me on <a href="https://mastodon.online/@maaube">mastodon</a>/<a href="https://github.com/marcaube">github</a> for a removal.
+                </p>
+                <h1>Front-end performance for web designers and front-end developers</h1>
+<p>
+It’s hard, if not impossible, to deny that performance is <em>by far</em> one of the most critical aspects of any decent web project, be it a small portfolio site, a mobile-first web app, right through to a full-scale ecommerce project. Studies, articles and personal experience all tell us that fast is best.
+</p>
+<p>
+Performance is not only hugely important, it is <em>incredibly</em> interesting, and something I am getting more and more involved in at both work (I’m forever pestering our Lead Performance Engineer) and in side projects and CSS Wizardry (I’m forever pestering <a href="http://twitter.com/andydavies">Andy Davies</a>).
+</p>
+<p>
+I’m going to share – in this massive article – a load of quick, simple and downright intriguing bits of perf knowledge to act as a primer for web designers and front-end developers alike; hopefully this article will serve as a decent introduction for anyone wanting to start learning about perf, and making their front-ends blazingly fast. These tips are all things you can implement by yourself <em>very</em> easily. It just takes a bit of cunning and some basic knowledge of how browsers work and you’re ready to game the system!
+</p>
+<p>
+This huge post won’t have loads of confusing graphs and numbers to crunch, but instead concerns itself with theory and first-hand performance techniques that I have arrived at as a result of reading, monitoring, collaborating and tinkering (I spend a lot of time glued to CSS Wizardry’s waterfall charts). I will also link to other articles on similar topics to help reinforce any key points. Enjoy!
+</p>
+<p>
+<strong>N.B.</strong> This article does require a small amount of basic performance knowledge up-front, but anything covered that you aren’t familiar with should be just a Google search away!
+</p>
+<p>
+- - - - - -
+</p>
+<p>
+1. <a href="#the-basics">The basics</a>
+1. <a href="#styles-at-the-top-scripts-at-the-bottom">Styles at the top, scripts at the bottom</a>
+2. <a href="#make-fewer-requests">Make fewer requests</a>
+3. <a href="#maximising-parallelisation">Maximising parallelisation</a>
+2. <a href="#http-requests-and-dns-lookups">HTTP requests and DNS lookups</a>
+1. <a href="#dns-prefetching">DNS prefetching</a>
+3. <a href="#resource-prefetching">Resource prefetching</a>
+4. <a href="#css-and-performance">CSS and performance</a>
+5. <a href="#gzipping-and-minifying">Gzipping and minifying</a>
+6. <a href="#optimising-images">Optimising images</a>
+1. <a href="#spriting">Spriting</a>
+2. <a href="#retina-images">Retina images</a>
+3. <a href="#progressive-jpgs">Progressive JPGs</a>
+4. <a href="#use-no-images-at-all">Use no images at all</a>
+7. <a href="#further-reading-3">Further reading</a>
+</p>
+<p>
+- - - - - -
+</p>
+<h2>The basics</h2>
+<p>
+There are a few things <em>all</em> designers and front-end developers will likely know about performance, things like making as few requests as possible, optimising images, putting stylesheets in the ``, putting JS before the ``, minifying JS and CSS and so on. These fundamentals will already get you on your way to faster experiences for users, but there’s more… much more.
+</p>
+<p>
+It is also very important to remember that – for all they give us headaches every day of our working lives – browsers are <em>very</em> clever; they do a lot to optimise performance for you, so a lot of perf knowledge combines knowing where the browser is at work, and knowledge of how best to exploit that. A lot of perf know-how is merely understanding, exploiting and manipulating what a browser does for us already.
+</p>
+<h3>Styles at the top, scripts at the bottom</h3>
+<p>
+This is a really basic rule, and one that should be super easy to follow most of the time, but why does it matter? Put <em>very</em> shortly:
+</p>
+<p>
+- <strong>CSS blocks rendering</strong>, so you need to deal with it right away (i.e. at the top of the document, in your ``).
+- <strong>JS blocks downloads</strong>, so you need to deal with these last to ensure that they don’t hold up anything else on the page.
+</p>
+<p>
+CSS blocks rendering because of a browsers desire to render pages progressively; they want to render things as they get to them, and in order. If styles are a long way down the page the browser can’t render that CSS until it gets to it. This is so that the browser can avoid redraws of styles if they alter something that was previously rendered further up the document. A browser won’t render a page until it has all the available style information, and if you put that style information at the bottom of the document you’re making the browser wait, blocking rendering.
+</p>
+<p>
+So, you put your CSS at the top of the page so that the browser can start rendering right away.
+</p>
+<p>
+JavaScript blocks downloads for a number of reasons (this is the browser being clever again) but firstly, we need to know how downloading assets in browsers actually happens; simply put, a browser will download as many assets as it can from a single domain <em>in parallel</em>. The more domains it is pulling from, the more assets can be downloaded, in parallel, at once.
+</p>
+<p>
+JavaScript interrupts this process, blocking parallel downloads from <em>any</em> and all domains, because:
+</p>
+<p>
+- The script being called might alter the page, meaning the browser will have to deal with that before it can move on to anything else. In order for it to deal with that eventuality it stops downloading anything else in order to focus soleley on that.
+- Scripts usually need to be loaded in a certain order for them to work, for example, loading jQuery <em>before</em> you load a plugin. Browsers block parallel downloads with JavaScript so that it doesn’t start downloading jQuery and your plugin at the same time; it should be pretty obvious that if you were to start downloading both in parallel, your plugin would arrive <em>before</em> jQuery would.
+</p>
+<p>
+So, because browsers stop all other downloads whilst JavaScript is being fetched, it is usually a good idea to put your JavaScript as late in the document as possible. I’m sure you’ve all seen blank sections of pages where a third party piece of JS is taking ages to load and blocking the fetching and rendering of the rest of the page’s assets; this is JavaScript’s blocking in action.
+</p>
+<p>
+Apparently, however, modern browsers get smarter still. I’m going to give you an excerpt from an email from <a href="http://twitter.com/andydavies">Andy Davies</a> to me, because he explains far better than I can:
+</p>
+<blockquote>Modern browsers will download JS in parallel and only rendering is blocked until the script has been executed (it obviously has to be downloaded too).</blockquote>
+<p>
+>
+</p>
+<blockquote>Downloading of the script will often be done by the browser’s look ahead pre-loader.</blockquote>
+<p>
+>
+</p>
+<blockquote>When a browser is blocked from rendering page e.g. waiting for CSS, or JS to execute, the look ahead pre-parser scans the rest of the page looking for resources it could download.</blockquote>
+<p>
+>
+</p>
+<blockquote>Some browsers e.g. Chrome, will prioritise the download of assets e.g. if scripts and images are both waiting to be downloaded it will download the script first.</blockquote>
+<p>
+Smart stuff!
+</p>
+<p>
+So, to allow a page to begin rendering as fast as possible, put your styles at the top. To prevent JS’ blocking affecting your rendering, put scripts at the bottom.
+</p>
+<h3> Make fewer requests</h3>
+<p>
+The other really obvious and basic performance optimisation is simply downloading less. Every asset a page requires is an extra HTTP request; the browser has to go off and get every single asset required to render a page. Each of these requests <em>can</em> incur DNS lookups, redirects, 404s etc. Every HTTP request you make, whether it is for a stylesheet, an image, a web font, a JS file, you name it, is a potentially very expensive operation. Minimising these requests is one of the quickest performance optimisations you can make.
+</p>
+<p>
+Going back to browsers and parallelisation; most browsers will only download a handfull of assets from each referenced domain at a time, and JS, remember, will block these downloads anyway. Every HTTP request you make should be well justified, and not taken lightly.
+</p>
+<h3>Maximising parallelisation</h3>
+<p>
+In order to get the browser to download more assets in parallel, you can serve them from different domains. If a browser can only fetch, say, two assets at once from a domain, then serving content from two domains means it can fetch four assets at once; serving from three domains means six parallel downloads.
+</p>
+<p>
+A lot of sites have static/asset domains; Twitter, you can see, use `si0.twimg.com` to serve static assets:
+</p>
+<p>
+```html
+<link rel="stylesheet" href="https://si0.twimg.com/a/1358386289/t1/css/t1_core.bundle.css" type="text/css" media="screen">
+```
+</p>
+<p>
+Facebook use `fbstatic-a.akamaihd.net`:
+</p>
+<p>
+```html
+<link rel="stylesheet" href="https://fbstatic-a.akamaihd.net/rsrc.php/v2/yi/r/76f893pcD3j.css">
+```
+</p>
+<p>
+Using these static, asset domains, Twitter and Facebook can serve more assets in parallel; assets from `twitter.com` and `si0.twimg.com` can be downloaded in tandem. This is a really simple way to get more concurrent downloads happening on your page, and even better when coupled with actual CDN technology that can help decrease latency by serving assets from a more suitable <em>physical</em> location.
+</p>
+<p>
+This is all well and good, but later we’ll discuss how serving from subdomains can actually, in certain circumstances, be detrimental to performance.
+</p>
+<p>
+So, these are our performance basics out of the way:
+</p>
+<p>
+- Put stylesheets at the top of a document
+- Put JavaScript at the bottom (where possible)
+- Make as few HTTP requests as possible
+- Serving assets from multiple domains can increase the number of assets a browser can download in parallel.
+</p>
+<h2>HTTP requests and DNS lookups</h2>
+<p>
+Every time you request an asset from any domain, out goes an HTTP request with the relevant headers, the resource is reached, and a response is sent back. This is a vast over-simplification of the process, but it’s about as much as you really need to know. This is an HTTP request, and all assets you reference are subject to this round trip. These requests are the main bottleneck when it comes to front-end performance because, as we covered, browsers are limited by how many of these requests can happen in parallel. This is why we often want to use subdomains; to allow these request to happen on several domains, allowing a greater number of requests to happen at the same time.
+</p>
+<p>
+A problem with this, however, is DNS lookup. Each time (from a cold cache) a <em>new</em> domain is referenced, the HTTP request is subject to a time-consuming DNS lookup (anywhere between 20 and 120 milliseconds) in which the outgoing request looks up where the asset actually lives; the internet is tied together by IP addresses which are referenced by hostnames which are managed by DNS.
+</p>
+<p>
+If each new domain you reference has the upfront cost of a DNS lookup, you have to be sure that it’s actually going to be worth it. If you are a small site (like CSS Wizardry, for example) then serving assets from a subdomain will likely not be worth it; the browser can probably fetch several under-parallelised assets from one domain quicker than it can perform DNS lookups across multiple domains and parallelise those.
+</p>
+<p>
+If you have perhaps a dozen assets, you might want to consider serving them from <strong>one</strong> subdomain; an extra DNS lookup is probably worth it in order to better parallelise that amount of assets. If you have, say, 40 assets, it might be worth sharding those assets across <em>two</em> subdomains; two extra DNS lookups will be worth it in order to serve your site from a total of three domains.
+</p>
+<p>
+DNS lookups are expensive, so you need to determine which is more suitable for your site; the overhead of lookups or just serving everything from one domain.
+</p>
+<p>
+It is important to remember that as soon as the HTML is requested from, say, `foo.com`, that DNS lookup for that host has already happened, so subsequent requests to anything on `foo.com` are <em>not</em> subject to DNS lookups.
+</p>
+<h3>DNS prefetching</h3>
+<p>
+If you, like me, want to have a Twitter widget on your site, and Analytics, and maybe some web fonts, then you will <em>have</em> to link to some other domains which means you’ll <em>have</em> to incur DNS lookups. My advice would always be not to use any and every widget without properly considering its performance impact first, but for any you <em>do</em> deem necessary, the following is useful…
+</p>
+<p>
+Because these things are on other domains it does mean that, for example, your web font CSS will download in parallel to your own CSS, which <em>is</em> a benefit in a way, but scripts will still block (<a href="http://css-tricks.com/thinking-async/">unless they’re async</a>).
+</p>
+<p>
+The problem here, really, is the DNS lookups involved with third party domains. Fortunately, there is a super quick and easy way to speed this process up: DNS prefetching.
+</p>
+<p>
+DNS prefetching does exactly what is says on the tin, and could not be simpler to implement. If you need to request assets from, say, `widget.foo.com`, then you can prefetch that hostname’s DNS by simply adding this early on in the `` of your page:
+</p>
+<p>
+```html
+...
+<link rel="dns-prefetch" href="//widget.foo.com">
+...
+```
+</p>
+<p>
+That simple line will tell supportive browsers to start prefetching the DNS for that domain a fraction before it’s actually needed. This means that the DNS lookup process will already be underway by the time the browser hits the `<script>` element that actually requests the widget. It just gives the browser a small head start.
+</p>
+<p>
+This simple link element (<a href="https://github.com/csswizardry/csswizardry.github.com/blob/b52472cea6a0f087944afda750839d7c96fab7d3/_layouts/default.html#L7-L15">which I use on CSS Wizardry</a>) is totally backward compatible and will not negatively impact performance. Think of it like performance progressive enhancement!
+</p>
+<h3>Further reading</h3>
+<p>
+- <a href="http://calendar.perfplanet.com/2012/speed-up-your-site-using-prefetching/">Speed Up Your Site Using Prefetching</a>
+</p>
+<h2>Resource prefetching</h2>
+<p>
+As well as prefetching DNS, it can be handy to prefetch any resources your site will need as well. In order to know what we might want to prefetch, we first must understand how and when a browser would <em>usually</em> request a resource.
+</p>
+<p>
+Web fonts and images referenced in CSS behave in much the same way; the browser will start downloading them once it hits a piece of HTML that requires them. Like I mentioned before, browsers are very clever and this is another great example of that. Imagine if browsers downloaded images referenced in CSS as soon as it saw the declarations:
+</p>
+<p>
+```css
+.page--home         { background-image:url(home.jpg); }
+.page--about        { background-image:url(about.jpg); }
+.page--portfolio    { background-image:url(portfolio.jpg); }
+.page--contact      { background-image:url(contact.jpg); }
+```
+</p>
+<p>
+If the browser <em>didn’t</em> wait until it encountered the HTML that needed these images then hitting the home page would download all four of them. This is wasteful, so browsers make sure they <em>definitely</em> need the image before they start downloading them. The problem here is that the download, therefore, doesn’t happen until pretty late on.
+</p>
+<p>
+If we can be completely sure we <em>always</em> want a certain CSS image used on <em>every</em> page, then we can trick the browser into downloading it early, <em>before</em> it encounters the HTML that needs it. To do this is incredibly simple, but can be a little dirty, depending on how you go about it.
+</p>
+<p>
+The dirty way, and likely most bulletproof, is to have a hidden `<div>` in every page which houses the CSS images as `<img>` elements with empty `alt` attributes. I do this with <a href="https://github.com/csswizardry/csswizardry.github.com/blob/b52472cea6a0f087944afda750839d7c96fab7d3/_layouts/default.html#L41-L44">CSS Wizardry’s sprite</a>; because I know it needs using on every page I can confidently prefetch it by referencing it in my HTML. The way browsers handle inline `<img>`s is quite nice in that it prefetches them and grabs them super early, so by making the browser load my sprite as an `<img>` in my markup, it can begin downloading it before the CSS requires it. I can get a headstart on that download by referencing it (hidden) in my HTML first.
+</p>
+<p>
+There is some confusion around the second, ‘cleaner’ way, which looks a lot like the DNS prefetching example:
+</p>
+<p>
+```html
+<link rel="prefetch" href="sprite.png">
+```
+</p>
+<p>
+This explicitly tells my browser to start prefetching my sprite, regardless of any decision it might make after evaluating my CSS.
+</p>
+<p>
+The confusion lies around a seeming disparity between two articles; based on <a href="https://developer.mozilla.org/en-US/docs/Link_prefetching_FAQ">this, from MDN</a>, it seems that the prefetch is a hint for browsers to <em>maybe</em> begin prefetching an asset <em>if</em> it’s idle. Contrarily, however, is <a href="http://calendar.perfplanet.com/2012/speed-up-your-site-using-prefetching/">this article</a> from Planet Performance which seems to suggest the browser will always prefetch the assets if it supports `rel="prefetch"` and makes no mention of idle time. Waterfalls I’ve looked at <em>seem</em> to suggest the latter is true, but an odd WebKit quirk whereby you can’t observe prefetch in action if you have Developer Tools open (talk about Schrödinger’s Perf…) means I can’t be 100% sure. Any clarification on this would be <em>greatly</em> appreciated.
+</p>
+<p>
+I mentioned that fonts and images work very much the same way; the above rules apply exactly the same for font-files, but you can’t load a font in a hidden `<div>` (you’ll need to use the prefetch link).
+</p>
+<p>
+```html
+<link rel="prefetch" href="webfont.woff">
+```
+</p>
+<p>
+So basically, what we’re doing here is ‘tricking’ the browser into downloading an asset ahead of time, so that by the time it does come to applying our CSS, it already has the resource downloaded (or at least on its way). Nifty!
+</p>
+<h3>Further reading</h3>
+<p>
+- <a href="http://calendar.perfplanet.com/2012/speed-up-your-site-using-prefetching/">Speed Up Your Site Using Prefetching</a>
+</p>
+<h2>CSS and performance</h2>
+<p>
+A lot of advice states that, if you <em>are</em> using asset domains, you should serve all static assets from them; this includes CSS, JS, images etc.
+</p>
+<p>
+One thing we found at work, though, is that you should <em>not</em> serve CSS from an asset/subdomain…
+</p>
+<p>
+Remember earlier, when we discussed how CSS blocks rendering? A browser wants to get hold of your CSS as soon as it can, if not sooner; CSS is on your <em>critical path</em>. Your critical path is the necessary journey between a user requesting your page and then actually seeing something. Because it blocks rendering, CSS is on the critical path, JS and images aren’t. You want to keep this journey along the critical path as quick as possible, this means <strong>no DNS lookups</strong>.
+</p>
+<p>
+At work, we were building a site whose staging environment served all assets from the same host (e.g. `foo.com`), but when it came round to making the staging environment more live-like, we began serving all our assets from `s1.foo.com` and `s2.foo.com`. This meant all images, JS, CSS, fonts etc were all coming from different domains, thus incurring DNS lookups. The problem here is that, from a cold cache, the DNS lookup required to start grabbing the CSS file was actually slowing the critical path <em>right down</em>. Our graphs spiked massively, indicating a delay that in theory shouldn’t have happened; best practice dictates that you should shard lots of assets over subdomains, right? <strong>Not CSS.</strong> The DNS lookup required took up a substantial amount of time which delayed rendering of the page.
+</p>
+<p>
+CSS is one of performance’s worst enemies, <a href="http://www.phpied.com/css-and-the-critical-path/">as outlined by Stoyan Stefanov</a>, because of this rendering blockage. It’s also worth noting that a browser will download <em>all</em> CSS before it will begin rendering your page. This means that your `print.css` <em>will</em> be requested even if the browser is only rendering a page on screen. It means that any stylesheets that are only used based on a media query (e.g. `<link rel="stylesheet" media="screen and (min-device-width: 800px)" href="desktop.css">`) will still be downloaded even if they aren’t needed.
+</p>
+<p>
+That said, I have been informed by <a href="http://twitter.com/andydavies">Andy Davies</a> that WebKit actually prioritises its CSS download order so that only CSS needed to <em>initially</em> render the page comes first, and other styles, e.g. `print.css` are deferred until as late as possible. Awesome!
+</p>
+<p>
+Knowing this about CSS allows us to make a few decisions, all based around the knowledge that CSS blocks rendering, is <em>all</em> requested, and is on your critical path:
+</p>
+<p>
+- <strong>Never serve it from a static/asset domain</strong> because this can incur DNS lookups that further delay rendering.
+- <strong>Serve it early</strong> so the browser can get on with things.
+- <strong>Concatenate it.</strong> Because a browser will fetch all CSS anyway, you’re better off squishing it all into the same HTTP request.
+- <strong>Gzip and minify it</strong> so that the browser has less to download.
+- <strong>Cache the hell out of it</strong> so that the whole process above happens as infrequently as possible.
+</p>
+<p>
+CSS is on your critical path so you need to get shut of it early, it blocks rendering, meaning slow experiences for your users. <strong>Moving CSS to a subdomain killed our performance.</strong>
+</p>
+<h3>Further reading</h3>
+<p>
+- <a href="http://www.phpied.com/css-and-the-critical-path/">CSS and the critial path</a>
+</p>
+<h2>Gzipping and minifying</h2>
+<p>
+These are two really simple things you can (and should) be doing with your text assets; minifying them to remove any comments and whitespace, and gzipping them to compress them down further.
+</p>
+<p>
+If you were to pick one over the other, gzip alone is more effective than minification alone. However, you should really do both, if you can.
+</p>
+<p>
+Turning gzip on <em>usually</em> requires a little `.htaccess` trickery, but as my good friend <a href="http://twitter.com/makeusabrew">Nick Payne</a> points out, `.htaccess` is actually not particularly performant from a server-side perspective; `.htaccess` is evaluated on <em>every</em> incoming request, so it’s actually a lot of overhead.
+</p>
+<p>
+This, taken from <a href="http://httpd.apache.org/docs/2.2/howto/htaccess.html">the Apache docs</a>:
+</p>
+<blockquote>You should avoid using `.htaccess` files completely if you have access to httpd main server config file. Using `.htaccess` files slows down your Apache http server. Any directive that you can include in a `.htaccess` file is better set in a <a href="http://httpd.apache.org/docs/2.2/mod/core.html#directory">`Directory`</a> block, as it will have the same effect with better performance.</blockquote>
+<p>
+If you do only have access to `.htaccess` then I wouldn’t worry; the cost of this overhead <em>usually</em> won’t be a concern. Enabling gzip with `.htaccess` is actually really simple to implement. Minification isn’t necessarily so easy unless you have a build process, or use something like CodeKit or a preprocessor which compiles straight to minified output.
+</p>
+<p>
+Interestingly, the main reason I moved <a href="http://inuitcss.com">inuit.css</a> over to Sass was – initially – so I could conveniently compile a minified version.
+</p>
+<p>
+Minification, for the most part, simply removes whitespace and comments; if you write as many comments in your code as I do then you really do want to minify your assets.
+</p>
+<p>
+Gzip, like any compression algorithm, takes any <em>text based</em> source and compresses it based on repeated/repeatable strings. Most code compresses really well via gzip as there’s a tendency for all code to have repeated strings in; e.g. `background-image` over and over in CSS, `<strong>` over and over in markup…
+</p>
+<p>
+Gzip <em>really</em> squishes the size of your assets massively, and you should definitely enable it. For a decent `.htaccess` snippet, check out how <a href="https://github.com/h5bp/html5-boilerplate/blob/dac15682b35ad69f519205e1b82694d0cab189ca/.htaccess#L153">the HTML5 Boilerplate handles stuff</a>.
+</p>
+<p>
+Compressing your content makes a <em>gigantic</em> saving. At the time of writing, inuit.css weighs in at 77 kilobytes. Compressed and gzipped it weighs just <strong>5.52</strong> kilobytes. <strong>Minify and gzip give us a 93% saving.</strong> And, because gzip works well on text-based assets, you can even gzip SVGs and even some font file formats!
+</p>
+<h2>Optimising images</h2>
+<p>
+I’m not overly knowledgable in the art of optimising images other than running them through an optimisation tool, but dealing with images themselves, post-processing, is a pretty interesting topic.
+</p>
+<h3>Spriting</h3>
+<p>
+Sprites are pretty much mandatory if you want a performant site; load one larger image over one HTTP request instead of several images over several requests. The problem is, however, that not all images are immediately spriteable; you might have an icon that needs to be the background image on a fluid-width element, but you clearly can’t sprite this as sprites don’t work on non-fixed-dimension elements. You could always just put a lot of whitespace around the image in the sprite sheet, but <a href="http://blog.vlad1.com/2009/06/22/to-sprite-or-not-to-sprite/">wasted pixel in sprites are a performance concern of their own</a>.
+</p>
+<p>
+In order to combat the unspriteability of certain elements, we need what is known as a ‘spriting element’. This is basically an empty element, usually an `<i>`, whose sole job it is to remain empty and just carry a background image.
+</p>
+<p>
+I used these when I built <a href="http://www.skybet.com/">Sky Bet</a>, YouTube use them, Facebook use them, <a href="http://twitter.com/snookca">Jonathan Snook</a> has <a href="http://smacss.com/book/icon-module">an entire section on them in SMACSS</a>.
+</p>
+<p>
+The basic premise is that, if you can’t sprite an element because it’s fluid, you place an empty element inside it that you <em>can</em> fix the dimensions of that you then <em>can</em> sprite up, for example:
+</p>
+<p>
+```html
+<li>
+<a href="/profile/">
+<i class="icon  icon--person"></i> Profile
+</a>
+</li>
+```
+</p>
+<p>
+Here we can’t sprite the `<li>` or the `<a>` so we have an empty `<i>` in there which carries the icon instead. <em>This</em> is one of the things I love most about performance; you’re combining clever techniques to improve page speeds whilst also using traditionally ‘bad’ markup. Lovely stuff!
+</p>
+<p>
+#### Further reading
+</p>
+<p>
+- <a href="http://blog.vlad1.com/2009/06/22/to-sprite-or-not-to-sprite/">To Sprite Or Not To Sprite</a>
+</p>
+<h3>Retina images</h3>
+<p>
+You don’t need to retina <em>everything</em>. A 2x image contains <strong>four times</strong> the amount of pixels as the same image in standard resolution. Four. Times. Whilst this doesn’t necessarily mean four times the file size over the wire – thanks to the image’s own encoding – this does mean that once the image is decompressed for rendering in the browser, there <em>are</em> four times the usual amount of pixels that need storing in memory.
+</p>
+<p>
+If we stop and think; retina images are most frequently (although not always) needed to provide a crisper UI to phones. Phones have much less memory than most other devices. Retina serves memory-hogging images to devices that aren’t known for having copious amounts of memory… Think twice about whether you really need retina images across the board, or can you make sensible compromises?
+</p>
+<p>
+Retina is great for a nice, sharp experience, but there’s no point in a crisp experience if it takes five seconds to download. In most cases speed should win over aesthetics.
+</p>
+<p>
+You can be clever and serve 1.5x images to all devices, in a bid to provide good-enough images to everyone, but the best option would – in my opinion – to only use retina sparingly.
+</p>
+<p>
+If your stats are forgiving enough, you could perhaps opt for SVGs or an icon font instead of bitmap images. I use SVG on CSS Wizardry which gives me the benefits of:
+</p>
+<p>
+- Resolution independent
+- Minifiable
+- Gzippable
+</p>
+<p>
+At work <a href="http://twitter.com/sdmix">Matt Allen</a> made us an icon font which can be used with your spriting element to provide retina-ready, scalable icons.
+</p>
+<p>
+You could also look to use services like <a href="http://resrc.it">ReSRC.it</a> to load images depending on the device and its context.
+</p>
+<h3>Progressive JPGs</h3>
+<p>
+One interesting aspect of performance is <em>perceived</em> performance; not necessarily what your numbers tell you, but how fast a site <em>feels</em>.
+</p>
+<p>
+When displaying large, JPG images, you’re probably more than familiar with its jerky loading; a hundred pixels of the image, pause, another fifty, pause, in jump another two hundred pixels then <strong>bam</strong>, the whole image loads.
+</p>
+<p>
+This is the traditional <em>baseline</em> JPG at work, a very jerky experience indeed. By switching over to progressive JPGs you can make them load in a much nicer fashion; their first appearance is of the whole image, but very pixellated, then it slowly comes into focus. This sounds worse than the previous method but it <em>feels</em> faster; the user has something to look at instantly and the quality of the image progressively improves. These images are <em>typically</em> a tad larger than their baseline counterparts, but make the overall experience feel a <em>lot</em> faster.
+</p>
+<p>
+To enable progressive JPGs you simply need to check the relevant box when saving for web and devices in Photoshop; job done!
+</p>
+<p>
+#### Further reading
+</p>
+<p>
+- <a href="http://calendar.perfplanet.com/2012/progressive-jpegs-a-new-best-practice/">Progressive jpegs: a new best practice</a>.
+</p>
+<h3>Use no images at all</h3>
+<p>
+Better than spriting, and SVGs, and avoiding retina, is to avoid images altogether. If you can 100% replicate a design using an image, but 75% replicate it using pure CSS, then prefer the pure CSS solution (provided it doesn’t result in 100 more lines of code, of course!). Avoiding images means potentially avoiding HTTP requests, but also aids maintenance. If you can avoid using images then try and do so.
+</p>
+<p>
+- - - - - -
+</p>
+<h2>Summary</h2>
+<p>
+So there we have a shed load of (but still <em>just a few</em>) things you can do to exploit the browser and make your front-ends even faster. Knowing a few things about how browsers work can really allow us to manipulate it further and make our front-ends <em>even</em> faster.
+</p>
+<p>
+If you have any additions – or indeed disagreements or corrections – then please do join <a href="http://branch.com/b/front-end-performance-for-web-designers-and-front-end-devs">the discussion over on Branch</a>; this whole world of perf is still relatively new to me so I’m keen to keep learning from others, and push things even further.
+</p>
+<p>
+I really hope that wall of text managed to enlighten you in at least some way, and that you came away with some new knowledge of things you’d perhaps never thought about. I also hope that, if you weren’t already, this article has helped to get you at least <em>half</em> as interested in performance as I have found myself.
+</p>
+<p>
+I would like to explicitly thank <a href="http://twitter.com/makeusabrew">Nick Payne</a> and <a href="http://twitter.com/andydavies">Andy Davies</a> for their help clearing a few things up in the writing of this article; cheers guys!
+</p>
+<h2>Further reading</h2>
+<p>
+If you enjoyed that, and want to know more, I can’t recommend the following enough:
+</p>
+<p>
+- Souders’ <a href="http://www.amazon.com/High-Performance-Web-Sites-Essential/dp/0596529309">High Performance Websites</a> and <a href="http://www.amazon.com/Even-Faster-Web-Sites-Performance/dp/0596522304">Even Faster Websites</a>.
+- <a href="http://www.phpied.com/">Stoyan Stefanov</a>’s site.
+- <a href="http://www.igvita.com/">Ilya Grigorik</a>’s site.
+- <a href="http://twitter.com/andydavies">Andy Davies</a>.
+</p>
+            </article>
+        </div>
+    </div>
+</body>
+</html>

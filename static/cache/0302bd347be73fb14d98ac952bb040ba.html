@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting a performance budget - TimKadlec.com</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo"><a href="/">Marc Aube</a></h1>
+        </div>
+    </header>
+    <div class="content">
+        <div class="container">
+            <article class="post">
+                <p class="meta">
+                    <a href="http://timkadlec.com/2013/01/setting-a-performance-budget/" target="_blank">Article put in cache</a> for perenniality, <br/> 
+                    contact me on <a href="https://mastodon.online/@maaube">mastodon</a>/<a href="https://github.com/marcaube">github</a> for a removal.
+                </p>
+                <h1>Setting a Performance Budget</h1>
+<p>
+Jason Grigsby <a href="http://www.slideshare.net/grigs/native-is-easy-web-is-essential/51">once quipped</a> that “We’ve remade the Internet in our image….obese.” He was right, of course. Average page weight and number of connections has been increasing at a rather alarming rate.
+</p>
+<p>
+This is why I’ve been so happy to see the recent rash of posts discussing performance as a fundamental component of design. <a href="http://bradfrostweb.com/blog/post/performance-as-design/">The latest comes from Mr. Brad Frost</a>. He makes the case that performance is not just something developers need to worry about, but that it is an “essential <em>design</em> feature.”
+</p>
+<p>
+One of the things he suggests doing is mentioning performance in project documents.
+</p>
+<blockquote>Statements of work, project proposals and design briefs should explicitly and repeatedly call out performance as a primary goal. “The goal of this project is to create a stunning, flexible, lightning-fast experience…”</blockquote>
+<p>
+It’s an excellent point. Performance should be brought up early and often to emphasize its importance. Not considering it from the earliest stages of a project is a surefire way to end up with slow and bloated sites. A decision made early on about the visual appearance of a site can have a serious impact on how the site itself will end up performing.
+</p>
+<p>
+Early in the project, saying things like “lightning-fast experience” is probably sufficient. At some point you need to get a little more direct though.
+</p>
+<p>
+Enter the performance budget. I’ve <a href="http://24ways.org/2012/responsive-responsive-design/">mentioned this before</a>, but it’s worth discussing in a bit more detail.
+</p>
+<p>
+A performance budget is just what it sounds like: you set a “budget” on your page and do not allow the page to exceed that. This may be a specific load time, but it is usually an easier conversation to have when you break the budget down into the number of requests or size of the page.
+</p>
+<p>
+The BBC did this with their responsive mobile site. They determined that they wanted each page to be usable within <a href="https://speakerdeck.com/tmaslen/moving-swiftly-the-story-of-how-bbc-news-fell-in-love-with-responsive-web-design#63">10 seconds on a GPRS connection</a> and then based their goals for page weight and request count on that.
+</p>
+<p>
+Once those goals are set, you stick to them. Anytime you want to add something to a page, you need to ensure it stays within budget. <a href="http://fsm.bdconf.com/podcast/web-performance">Steve Souders talked</a> about the three options you have if something does not fit within the budget:
+</p>
+<p>
+1. Optimize an existing feature or asset on the page.
+2. Remove an existing feature or asset from the page.
+3. Don’t add the new feature or asset.
+</p>
+<p>
+Just be sure to define the budget early on. Defining a performance budget after you’ve already finalized the appearance of a site limits its effectiveness. It may still help to guide decisions about plugins and so on, but deciding a page can’t exceed 500kB when a mock-up containing three carousels and a full-screen high-resolution background image has already been approved isn’t going to do you much good.
+</p>
+<p>
+Clearleft recently wrote an excellent post about <a href="http://clearleft.com/thinks/responsivedesignonabudget/">their experience with using a performance budget</a> and how it impacted their project:
+</p>
+<blockquote>The important point is to look at every decision, right through the design/build process, as something that has consequence. Having a pre-defined ‘budget’ is a clear, tangible way to frame decisions about what can and can’t be be included, and at a suitably early stage in the project. It can also potentially provide some justification to the client about why certain things have been omitted (or rather, swapped out for something else).</blockquote>
+<p>
+That’s the value of a performance budget: it provides a framework for discussions as you move forward. It serves as a point of reference as you decide what components should, and shouldn’t, get added to a page.
+</p>
+<p>
+It’s worth noting that I’m assuming you have already determined what content needs to be on the page to begin with. A performance budget doesn’t guide your decisions about <em>what</em> content should be displayed. Rather, it’s about <em>how</em> you choose to display that content. Removing important content altogether to decrease the weight of a page is not a performance strategy.
+</p>
+<p>
+As Brad stated, it’s time to give performance the attention it deserves and setting a budget is an excellent place to start.
+</p>
+            </article>
+        </div>
+    </div>
+</body>
+</html>
