@@ -5,7 +5,7 @@
     <h1 class="pageTitle">Articles</h1>
     <ul class="posts noList">
         {% set section = get_section(path="_index.md") %}
-        {% for page in section.pages %}
+        {% for page in section.pages | reverse %}
             {# Skip static pages by checking if year is in the path (blog posts have /YYYY/ in path) #}
             {% if "/201" in page.path or "/202" in page.path %}
             <li>
