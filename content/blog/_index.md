@@ -3,8 +3,8 @@
 paginate_by = 5
 # Sort by date descending (newest first)
 sort_by = "date"
-# Use section template for blog listing
+# Use section template for pagination
 template = "section.html"
-# This section is for blog posts
+# Blog section holds all posts
 transparent = false
 +++

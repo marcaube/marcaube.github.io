@@ -1,22 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div id="articles">
-    <h1 class="pageTitle">Articles</h1>
+<div class="home" id="home">
+    <h1 class="pageTitle">Recent Posts</h1>
+
     <ul class="posts noList">
-        {% for page in section.pages %}
+        {% for page in paginator.pages %}
             <li>
                 <span class="date">{{ page.date | date(format="%B %d, %Y") }}</span>
-                <h3><a href="{{ page.permalink | trim_end_matches(pat="/") }}">{{ page.title }}</a></h3>
-                <p class="description">
-                    {% if page.description %}
-                        {{ page.description | striptags | truncate(length=120) }}
-                    {% else %}
-                        {{ page.content | striptags | truncate(length=120) }}
-                    {% endif %}
-                </p>
+                <h3><a class="post-link" href="{{ page.permalink | trim_end_matches(pat="/") }}">{{ page.title }}</a></h3>
+                <p class="description">{% if page.description %}{{ page.description | striptags | truncate(length=250) }}{% else %}{{ page.content | striptags | truncate(length=250) }}{% endif %}</p>
             </li>
         {% endfor %}
     </ul>
+
+    <!-- Pagination links -->
+    <div class="pagination">
+        {% if paginator.previous %}
+            <a href="{{ paginator.previous }}" class="previous button__outline">Newer Posts</a>
+        {% endif %}
+
+        {% if paginator.next %}
+            <a href="{{ paginator.next }}" class="next button__outline">Older Posts</a>
+        {% endif %}
+    </div>
 </div>
 {% endblock content %}
