@@ -50,7 +50,11 @@
          <nav class="nav-collapse">
              <ul class="noList">
                  {% for link in config.extra.navigation %}
-                     <li class="element {% if loop.first %}first{% endif %} {% if current_path == link.url %}current{% endif %} {% if loop.last %}last{% endif %}">
+                     {% set is_current = false %}
+                     {% if current_path == link.url or current_path == link.url ~ "/" or current_path == link.url ~ "index.html" %}
+                         {% set_global is_current = true %}
+                     {% endif %}
+                     <li class="element {% if loop.first %}first{% endif %} {% if is_current %}current{% endif %} {% if loop.last %}last{% endif %}">
                          <a href="{{ get_url(path=link.url) }}">{{ link.title }}</a>
                      </li>
                  {% endfor %}
