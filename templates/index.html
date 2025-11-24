@@ -5,7 +5,8 @@
     <h1 class="pageTitle">Recent Posts</h1>
 
     <ul class="posts noList">
-        {% for page in paginator.pages %}
+        {% set blog_section = get_section(path="blog/_index.md") %}
+        {% for page in blog_section.pages | slice(end=5) %}
             <li>
                 <span class="date">{{ page.date | date(format="%B %d, %Y") }}</span>
                 <h3><a class="post-link" href="{{ page.permalink | trim_end_matches(pat="/") }}">{{ page.title }}</a></h3>
@@ -14,15 +15,9 @@
         {% endfor %}
     </ul>
 
-    <!-- Pagination links -->
+    <!-- Link to all articles -->
     <div class="pagination">
-        {% if paginator.previous %}
-            <a href="{{ paginator.previous }}" class="previous button__outline">Newer Posts</a>
-        {% endif %}
-
-        {% if paginator.next %}
-            <a href="{{ paginator.next }}" class="next button__outline">Older Posts</a>
-        {% endif %}
+        <a href="/articles" class="next button__outline">All Articles</a>
     </div>
 </div>
 {% endblock content %}

@@ -4,10 +4,8 @@
 <div id="articles">
     <h1 class="pageTitle">Articles</h1>
     <ul class="posts noList">
-        {% set section = get_section(path="_index.md") %}
-        {% for page in section.pages %}
-            {# Only include blog posts (files that start with YYYY-MM-) #}
-            {% if page.slug is starting_with("201") or page.slug is starting_with("202") %}
+        {% set blog_section = get_section(path="blog/_index.md") %}
+        {% for page in blog_section.pages %}
             <li>
                 <span class="date">{{ page.date | date(format="%B %d, %Y") }}</span>
                 <h3><a href="{{ page.permalink | trim_end_matches(pat="/") }}">{{ page.title }}</a></h3>
@@ -19,7 +17,6 @@
                     {% endif %}
                 </p>
             </li>
-            {% endif %}
         {% endfor %}
     </ul>
 </div>
