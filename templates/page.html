@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<article class="post">
+    {% if page.extra.image %}
+        <div class="featuredImage">
+            <img src="{{ get_url(path="assets/img/" ~ page.extra.image) }}" alt=""/>
+        </div>
+    {% endif %}
+
+    <h1 class="postTitle">{{ page.title }}</h1>
+
+    {% if page.date %}
+        <p class="meta">
+            {{ page.date | date(format="%B %d, %Y") }} |
+            <span class="time">{{ page.word_count / 150 | round }}</span> Minute Read
+        </p>
+    {% endif %}
+
+    {{ page.content | safe }}
+
+    <p>
+        <em>By the way, if you found a typo, please <a href="{{ config.extra.repository_url }}/edit/master/content/{{ page.relative_path }}">fork and edit this post</a>. Thank you so much!</em>
+    </p>
+
+    <!-- POST NAVIGATION -->
+    <nav class="postNav clearfix">
+        {% if page.earlier %}
+            <a class="prev{% if page.earlier.extra.image %} image{% endif %}" href="{{ page.earlier.permalink | trim_end_matches(pat="/") }}"><span>&laquo;&nbsp;{{ page.earlier.title }}</span>
+                {% if page.earlier.extra.image %}
+                    <img src="{{ get_url(path="assets/img/" ~ page.earlier.extra.image) }}" alt="">
+                {% endif %}
+            </a>
+        {% endif %}
+
+        {% if page.later %}
+            <a class="next{% if page.later.extra.image %} image{% endif %}" href="{{ page.later.permalink | trim_end_matches(pat="/") }}"><span>{{ page.later.title }}&nbsp;&raquo;</span>
+                {% if page.later.extra.image %}
+                    <img src="{{ get_url(path="assets/img/" ~ page.later.extra.image) }}" alt="">
+                {% endif %}
+            </a>
+        {% endif %}
+    </nav>
+</article>
+
+<link rel="stylesheet" href="{{ get_url(path="assets/css/syntax.css") }}">
+{% endblock content %}

@@ -1,0 +1,44 @@
+# Base configuration
+base_url = "http://marcaube.ca"
+title = "Marc Aube"
+description = "Software craftsmanship, rants and randomness"
+default_language = "en"
+
+# Output directory for the static site
+output_dir = "public"
+
+# Compile Sass
+compile_sass = false
+
+# Build search index
+build_search_index = false
+
+# Generate RSS feed
+generate_feeds = true
+feed_filenames = ["atom.xml"]
+
+# Taxonomies (tags, categories)
+taxonomies = []
+
+[link_checker]
+# Skip checking internal links with anchors (cache files have broken anchors)
+internal_level = "warn"
+
+[markdown]
+# Syntax highlighting
+highlight_code = true
+highlight_theme = "base16-ocean-dark"
+
+[extra]
+# Navigation menu
+navigation = [
+    { title = "Home", url = "/" },
+    { title = "Articles", url = "/articles" },
+    { title = "Talks", url = "/talks" },
+    { title = "My bookshelf", url = "/books" },
+]
+
+# Social links
+github = "marcaube"
+mastodon = "https://mastodon.online/@maaube"
+repository_url = "https://github.com/marcaube/marcaube.github.io"

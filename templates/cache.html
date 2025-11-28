@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<article class="post">
+    <p class="meta">
+        <a href="{{ page.extra.canonical }}" target="_blank">Article put in cache</a> for perenniality, <br/> contact me on
+        <a href="{{ config.extra.mastodon }}">mastodon</a>/<a href="https://github.com/{{ config.extra.github }}">github</a> for a removal.
+    </p>
+
+    {{ page.content | safe }}
+</article>
+
+<link rel="stylesheet" href="{{ get_url(path="assets/css/syntax.css") }}">
+{% endblock content %}
